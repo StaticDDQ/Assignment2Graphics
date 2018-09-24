@@ -1,36 +1,44 @@
 ﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    public float Speed = 5f;
-    public float Gravity = -9.81f;
-    public float GroundDistance = 0.2f;
-    public LayerMask Ground;
 
-    private CharacterController controller;
-    private Vector3 velocity;
-    private bool _isGrounded = true;
-    private Transform Cam;
+    private new Rigidbody rigidbody;
+    private Transform cam;
 
+    public float gravity = 9.81f;
+    public float moveSpeed = 3f;
+    public float jumpHeight = 5f;
+    public float height = 2f;
+
+    private Vector3 moveDir = Vector3.zero;
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();
-        Cam = transform.GetChild(0);
+        rigidbody = GetComponent<Rigidbody>();
+        cam = Camera.main.transform;
     }
 
-    void Update()
+    private void Update()
     {
+        moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        moveDir = cam.TransformDirection(moveDir);
+        moveDir.y = 0f;
+    }
 
-        Vector3 moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
-        moveDir = Cam.TransformDirection(moveDir);
-        controller.Move(moveDir * Time.deltaTime * Speed);
+    private void FixedUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
+        {
+            rigidbody.AddForce(transform.up * jumpHeight, ForceMode.VelocityChange);
+        }
 
-        velocity.y += Gravity * Time.deltaTime;
+        rigidbody.MovePosition(transform.position + Vector3.Normalize(moveDir) * Time.deltaTime * moveSpeed);
 
-        _isGrounded = Physics.CheckSphere(Cam.position, GroundDistance, Ground, QueryTriggerInteraction.Ignore);
-        if (_isGrounded && velocity.y < 0)
-            velocity.y = 0f;
+        rigidbody.AddForce(-transform.up * gravity, ForceMode.Acceleration);
+    }
 
-        controller.Move(velocity * Time.deltaTime);
+    private bool isGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, height);
     }
 }

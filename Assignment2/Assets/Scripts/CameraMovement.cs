@@ -2,7 +2,7 @@
 
 public class CameraMovement : MonoBehaviour {
 
-    private const float RANGE = 90;
+    private const float RANGE = 85;
     [SerializeField] private float mouseSpeed;
 
     private float pitch;
