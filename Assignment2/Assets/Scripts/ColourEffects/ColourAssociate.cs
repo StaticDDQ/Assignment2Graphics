@@ -2,37 +2,38 @@
 
 public static class ColourAssociate {
 
-	public static ColourEffect SelectColor(Color newColor)
-    {
-        if (newColor.Equals(Color.red))
-        {
-            return new EnlargeEffect();
-        }
-        else if (newColor.Equals(Color.green))
-        {
-            return new StaticEffect();
-        }
-        else if (newColor.Equals(Color.blue))
-        {
-            return new ShrinkEffect();
-        }
-        else if (newColor.Equals(Color.yellow))
-        {
-            return new MagnetEffect();
-        }
-        else if (newColor.Equals(Color.cyan))
-        {
-            return new SlipperyEffect();
-        }
-        else if (newColor.Equals(Color.magenta))
-        {
-            return new BounceEffect();
-        }
-        else if (newColor.Equals(Color.white))
-        {
-            return new RemoveEffect();
-        }
+    private static Color YELLOW = new Vector4(1, 1, 0, 1);
 
-        return null;
+    // Keep track what color is associated with an effect
+	public static void SelectColor(GameObject obj, Color newColor)
+    {
+        if (newColor == Color.red)
+        { 
+            obj.AddComponent<EnlargeEffect>();
+        }
+        else if (newColor == Color.green)
+        {
+            obj.AddComponent<StaticEffect>();
+        }
+        else if (newColor == Color.blue)
+        {
+            obj.AddComponent<ShrinkEffect>();
+        }
+        else if (newColor == YELLOW)
+        {
+            obj.AddComponent<MagnetEffect>();
+        }
+        else if (newColor == Color.cyan)
+        {
+            obj.AddComponent<SlipperyEffect>();
+        }
+        else if (newColor == Color.magenta)
+        {
+            obj.AddComponent<BounceEffect>();
+        }
+        else if (newColor == Color.white)
+        {
+            obj.AddComponent<RemoveEffect>();
+        }
     }
 }

@@ -1,40 +1,36 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ColourDecider : MonoBehaviour {
 
-    [SerializeField] private List<HeldColour> currColors;
-    private HeldColour selectedColor;
+    [SerializeField] private Color currColor = Color.white;
 
-    // Add new color if possible for a max of 4
-    public bool AddColor(Color newColor)
+    // Setting the color to the object, apply effect based on color
+    public void SetEffect(Color newColor)
     {
-        for (int i = 0; i < 4; i++)
+        // Change color to white entirely
+        if (newColor == Color.white)
+            currColor = Color.white;
+        // Start with new color
+        else if (currColor == Color.white)
+            currColor = newColor;
+        // Color is mixed
+        else
+            currColor = (currColor + newColor);
+
+        if ((GetComponent<EnlargeEffect>() != null && currColor == Color.red) ||
+            (GetComponent<ShrinkEffect>() != null && currColor == Color.blue))
         {
-            if (currColors[i].GetCurrColor().Equals(Color.clear))
-            {
-                currColors[i].AssignColor(newColor);
-                return true;
-            }
+            GetComponent<ColourEffect>().ApplyEffect();
         }
-        return false;
-    }
-
-    // If a color is selected, deselect the previous selected color
-    public void ChangeColor(HeldColour newSelected)
-    {
-        if(selectedColor != null){
-            selectedColor.DeselectColor();
+        else if (GetComponent<ColourEffect>() != null)
+        {
+            // Remove the first effect and replace with the new one
+            GetComponent<ColourEffect>().RevertEffect();
+            ColourAssociate.SelectColor(gameObject, currColor);
         }
-        selectedColor = newSelected;
-    }
-
-    // Assign effect to object if a color is selected
-    public Color GetSelectedEffect()
-    {
-        if(selectedColor != null)
-            return selectedColor.GetCurrColor();
-
-        return Color.clear;
+        else
+        {
+            ColourAssociate.SelectColor(gameObject, currColor);
+        }
     }
 }
