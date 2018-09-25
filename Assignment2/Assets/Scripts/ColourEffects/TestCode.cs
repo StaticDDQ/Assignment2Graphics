@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+// Test if the code works
 public class TestCode : MonoBehaviour {
 
     public GameObject target;

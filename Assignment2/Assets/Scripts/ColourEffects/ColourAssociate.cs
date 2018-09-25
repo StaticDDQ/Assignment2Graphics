@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
+// Global static class used for checking
 public static class ColourAssociate {
 
+    // Use this over Color.yellow to allow easier color comparison
     private static Color YELLOW = new Vector4(1, 1, 0, 1);
 
     // Keep track what color is associated with an effect
