@@ -5,6 +5,7 @@ public class TestCode : MonoBehaviour {
 
     public GameObject target;
     public Color selectColor;
+    public Material mat;
 
 	// Update is called once per frame
 	void Update () {
