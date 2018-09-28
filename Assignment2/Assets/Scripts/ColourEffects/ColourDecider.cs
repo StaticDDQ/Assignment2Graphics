@@ -14,6 +14,7 @@ public class ColourDecider : MonoBehaviour {
             currColor = Color.white;
             if (GetComponent<ColourEffect>() != null)
                 GetComponent<ColourEffect>().RevertEffect();
+            return;
         }
         // Start with new color
         else if (currColor == Color.white)
