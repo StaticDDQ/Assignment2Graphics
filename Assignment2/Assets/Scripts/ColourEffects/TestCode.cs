@@ -2,17 +2,19 @@
 
 // Test if the code works
 public class TestCode : MonoBehaviour {
+    public GameObject target1;
 
-    public GameObject target;
-    public Color selectColor;
-    public Material mat;
+    private bool isOn = true;
 
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            target.GetComponent<Renderer>().material.color = selectColor;
-            target.GetComponent<ColourDecider>().SetEffect(selectColor);
+            if(!isOn)
+                target1.GetComponent<DissolveObject>().DissolveOn();
+            else
+                target1.GetComponent<DissolveObject>().DissolveOff();
+            isOn = !isOn;
         }
 	}
 }

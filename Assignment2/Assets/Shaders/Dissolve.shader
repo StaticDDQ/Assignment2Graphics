@@ -1,13 +1,14 @@
-﻿
+﻿// If possible, attach this to objects with a max height of 10
 Shader "Custom/Dissolve"
 {
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
 		_DissolveTex("Dissolve Texture", 2D) = "white" {}
-		_DissolveY("Current Y of Dissolve Effect", float) = 0
+		_DissolveY("Current Y of Dissolve Effect", Range(-5,3)) = -5
 		_DissolveSize("Length of the effect", float) = 2
-		_Center("Center of the object", float) = 0
+		_Speed("Dissolve Speed", float) = 2
+		_StartTime("Start Time", float) = 10
 	}
 	SubShader
 	{
@@ -40,7 +41,8 @@ Shader "Custom/Dissolve"
 			sampler2D _DissolveTex;
 			float _DissolveY;
 			float _DissolveSize;
-			float _Center;
+			float _Speed;
+			float _StartTime;
 
 			v2f vert (appdata v)
 			{
@@ -55,12 +57,12 @@ Shader "Custom/Dissolve"
 			fixed4 frag(v2f i) : SV_Target
 			{
 
-				if (i.localPos.y > _Center) {
+				if (i.localPos.y < 0) {
 					float transitionUp = i.localPos.y - _DissolveY;
 					clip(transitionUp + tex2D(_DissolveTex, i.uv)*_DissolveSize);
 				}
 				else {
-					float transitionDown = -_DissolveY - i.localPos.y;
+					float transitionDown = - _DissolveY - i.localPos.y;
 					clip(transitionDown + tex2D(_DissolveTex, i.uv)*_DissolveSize);
 				}
 
