@@ -8,9 +8,13 @@ public class ColourDecider : MonoBehaviour {
     // Setting the color to the object, apply effect based on color
     public void SetEffect(Color newColor)
     {
-        // Change color to white entirely, reset the color
+        // Change color to white and remove the effect
         if (newColor == Color.white)
+        {
             currColor = Color.white;
+            if (GetComponent<ColourEffect>() != null)
+                GetComponent<ColourEffect>().RevertEffect();
+        }
         // Start with new color
         else if (currColor == Color.white)
             currColor = newColor;

@@ -33,19 +33,23 @@ public class DissolveObject : MonoBehaviour {
             else
             {
                 isOn = false;
+                GetComponent<BoxCollider>().enabled = dissolving;
             }
         }
 	}
 
     public void DissolveOn()
     {
-        isOn = true;
-        dissolving = !dissolving;
+        if (!isOn)
+        {
+            isOn = true;
+            dissolving = !dissolving;
 
-        float temp = currVal;
-        currVal = max;
-        max = temp;
+            float temp = currVal;
+            currVal = max;
+            max = temp;
 
-        val = currVal;
+            val = currVal;
+        }
     }
 }

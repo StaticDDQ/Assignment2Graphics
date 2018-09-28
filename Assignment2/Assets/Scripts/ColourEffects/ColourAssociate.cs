@@ -33,9 +33,8 @@ public static class ColourAssociate {
         {
             obj.AddComponent<BounceEffect>();
         }
-        else if (newColor == Color.white)
-        {
-            obj.AddComponent<RemoveEffect>();
-        }
+
+        if (obj.GetComponent<ColourEffect>() != null)
+            obj.GetComponent<ColourEffect>().ApplyEffect();
     }
 }
