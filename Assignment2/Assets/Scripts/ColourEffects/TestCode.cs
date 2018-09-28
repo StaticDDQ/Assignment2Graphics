@@ -10,11 +10,7 @@ public class TestCode : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if(!isOn)
-                target1.GetComponent<DissolveObject>().DissolveOn();
-            else
-                target1.GetComponent<DissolveObject>().DissolveOff();
-            isOn = !isOn;
+            target1.GetComponent<DissolveObject>().DissolveOn();
         }
 	}
 }

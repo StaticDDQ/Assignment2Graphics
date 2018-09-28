@@ -5,7 +5,7 @@ Shader "Custom/Dissolve"
 	{
 		_MainTex ("Texture", 2D) = "white" {}
 		_DissolveTex("Dissolve Texture", 2D) = "white" {}
-		_DissolveY("Current Y of Dissolve Effect", Range(-5,3)) = -5
+		_DissolveY("Current Y of Dissolve Effect", Range(0,5)) = -5
 		_DissolveSize("Length of the effect", float) = 2
 		_Speed("Dissolve Speed", float) = 2
 		_StartTime("Start Time", float) = 10
@@ -57,7 +57,7 @@ Shader "Custom/Dissolve"
 			fixed4 frag(v2f i) : SV_Target
 			{
 
-				if (i.localPos.y < 0) {
+				if (i.localPos.y > 0) {
 					float transitionUp = i.localPos.y - _DissolveY;
 					clip(transitionUp + tex2D(_DissolveTex, i.uv)*_DissolveSize);
 				}

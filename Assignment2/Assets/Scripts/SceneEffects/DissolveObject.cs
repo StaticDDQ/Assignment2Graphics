@@ -3,30 +3,32 @@
 public class DissolveObject : MonoBehaviour {
 
     private Material mat;
-    private float max, speed = 1;
-    private float currVal;
+    [SerializeField] private float max, currVal;
+    [SerializeField] private float speed = 1;
 
+    private float val;
     private bool isOn = false;
-    private bool dissolving = false;
+    private bool dissolving = true;
 
     private void Awake()
     {
         mat = GetComponent<Renderer>().material;
+        val = currVal;
     }
 
     // Update is called once per frame
     void Update () {
         if (isOn)
         {
-            if(dissolving && currVal < max)
+            if(!dissolving && val < max)
             {
-                mat.SetFloat("_DissolveY", currVal);
-                currVal += Time.deltaTime * speed;
+                mat.SetFloat("_DissolveY", val);
+                val += Time.deltaTime * speed;
             }
-            else if(!dissolving && currVal > max)
+            else if(dissolving && val > max)
             {
-                mat.SetFloat("_DissolveY", currVal);
-                currVal -= Time.deltaTime * speed;
+                mat.SetFloat("_DissolveY", val);
+                val -= Time.deltaTime * speed;
             }
             else
             {
@@ -38,16 +40,12 @@ public class DissolveObject : MonoBehaviour {
     public void DissolveOn()
     {
         isOn = true;
-        dissolving = true;
-        currVal = -5;
-        max = 3;
-    }
+        dissolving = !dissolving;
 
-    public void DissolveOff()
-    {
-        isOn = true;
-        dissolving = false;
-        currVal = 3;
-        max = -5;
+        float temp = currVal;
+        currVal = max;
+        max = temp;
+
+        val = currVal;
     }
 }

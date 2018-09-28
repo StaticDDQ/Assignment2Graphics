@@ -71,7 +71,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DissolveSize: 3
     - _DissolveSpeed: -2
-    - _DissolveY: 3
+    - _DissolveY: 0
     - _DissolveYNeg: 2
     - _DstBlend: 0
     - _Generate: 0.38
