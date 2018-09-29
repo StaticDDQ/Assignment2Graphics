@@ -1,31 +1,26 @@
 fileFormatVersion: 2
-guid: b489656a02224c14abc887765d2a580e
+guid: 17ac1681d3765ee42bae14e422e84228
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: base
-    100002: indicate
-    100004: //RootNode
-    100006: base_001
-    400000: base
-    400002: indicate
-    400004: //RootNode
-    400006: base_001
+    100000: Cube
+    100002: //RootNode
+    100004: indicator
+    400000: Cube
+    400002: //RootNode
+    400004: indicator
     2100000: Material
-    2300000: base
-    2300002: indicate
-    2300004: base_001
-    3300000: base
-    3300002: indicate
-    3300004: base_001
-    4300000: indicate
-    4300002: base
-    4300004: base_001
+    2300000: Cube
+    2300002: indicator
+    3300000: Cube
+    3300002: indicator
+    4300000: indicator
+    4300002: Cube
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -54,13 +49,13 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.5
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -79,7 +74,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

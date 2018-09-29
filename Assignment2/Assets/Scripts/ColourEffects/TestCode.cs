@@ -2,6 +2,7 @@
 
 // Test if the code works
 public class TestCode : MonoBehaviour {
+    public GameObject target2;
     public GameObject target1;
     public GameObject target;
 
@@ -14,6 +15,10 @@ public class TestCode : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F))
         {
             target.GetComponent<ColourDecider>().SetEffect(Color.magenta);
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            target2.GetComponent<ButtonDetect>().ButtonPressed();
         }
 	}
 }
