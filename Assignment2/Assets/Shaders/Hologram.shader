@@ -4,7 +4,7 @@
 	Properties
 	{
 		_Color("Color", Color) = (1,0,0,1)
-		_Bias("Bias", Range(-1,1)) = 0
+		_Bias("Bias", Range(-1,1.5)) = 0
 		_Speed("Speed", float) = 3
 		_LengthX("Length X", float) = 100
 		_LengthY("Length Y", float) = 100
