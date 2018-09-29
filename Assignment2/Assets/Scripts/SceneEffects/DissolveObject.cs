@@ -33,7 +33,8 @@ public class DissolveObject : MonoBehaviour {
             else
             {
                 isOn = false;
-                GetComponent<BoxCollider>().enabled = dissolving;
+                if(!dissolving)
+                    GetComponent<Collider>().enabled = false;
             }
         }
 	}
@@ -50,6 +51,9 @@ public class DissolveObject : MonoBehaviour {
             max = temp;
 
             val = currVal;
+
+            if (dissolving)
+                GetComponent<Collider>().enabled = true;
         }
     }
 }
