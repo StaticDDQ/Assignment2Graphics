@@ -1,18 +1,20 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class TriggerDetection : MonoBehaviour {
 
-    [SerializeField] private Renderer indicator;
+    [SerializeField] protected Renderer indicator;
+    protected Color currColor;
+    protected bool isTriggered = false;
 
-    private void OnTriggerEnter(Collider other)
+    protected IEnumerator TransitionEffect()
     {
-        //Do something
-        indicator.material.SetColor("_EmissionColor", new Color(0, 0, 0));
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        // Do something else
-        indicator.material.SetColor("_EmissionColor", new Color(1, 1, 1));
+        float t = 0;
+        while (t < 1)
+        {
+            indicator.material.SetColor("_EmissionColor", Color.Lerp(indicator.material.GetColor("_EmissionColor"), currColor, t));
+            t += Time.deltaTime;
+            yield return null;
+        }
     }
 }

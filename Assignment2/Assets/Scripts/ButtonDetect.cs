@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
+using System.Collections;
 
-public class ButtonDetect : MonoBehaviour {
-
-    [SerializeField] private Renderer indicator;
-    private bool isPressed = false;
+public class ButtonDetect : TriggerDetection{
 
     private void Awake()
     {
-        indicator.material.SetColor("_EmissionColor", new Color(1, 1, 1));
+        currColor = Color.white;
     }
 
     public void ButtonPressed()
@@ -15,12 +13,14 @@ public class ButtonDetect : MonoBehaviour {
         if (!GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsTag("1"))
         {
             GetComponent<Animator>().Play("ButtonPressed");
-            isPressed = !isPressed;
-            if (isPressed)
-                indicator.material.SetColor("_EmissionColor", new Color(0, 0, 0));
+            isTriggered = !isTriggered;
+
+            if (isTriggered)
+                currColor = Color.black;
             else
-                indicator.material.SetColor("_EmissionColor", new Color(1, 1, 1));
-            
+                currColor = Color.white;
+
+            StartCoroutine(TransitionEffect());
             //Do Something
         }
     }
