@@ -20,6 +20,7 @@ public class ButtonDetect : TriggerDetection{
             else
                 currColor = Color.white;
 
+            StopAllCoroutines();
             StartCoroutine(TransitionEffect());
             //Do Something
         }
