@@ -20,5 +20,21 @@ public class TestCode : MonoBehaviour {
         {
             target2.GetComponent<ButtonDetect>().ButtonPressed();
         }
-	}
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            GravityControl.ChangeGravity(1);
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            GravityControl.ChangeGravity(-1);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            GravityControl.ChangeGravity(2);
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            GravityControl.ChangeGravity(-2 );
+        }
+    }
 }

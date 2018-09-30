@@ -66,8 +66,9 @@ Material:
     - _GlossyReflections: 1
     - _Length: 25.8
     - _Length1: 50
-    - _LengthX: 30
-    - _LengthY: 40
+    - _LengthX: 15
+    - _LengthY: 21
+    - _LengthZ: 20
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1

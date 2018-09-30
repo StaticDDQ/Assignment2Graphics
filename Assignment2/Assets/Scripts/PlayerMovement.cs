@@ -4,8 +4,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private new Rigidbody rigidbody;
     private Transform cam;
-
-    public float gravity = 9.81f;
+    
     public float moveSpeed = 3f;
     public float jumpHeight = 5f;
     public float height = 2f;

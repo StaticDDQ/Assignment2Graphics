@@ -8,6 +8,7 @@
 		_Speed("Speed", float) = 3
 		_LengthX("Length X", float) = 100
 		_LengthY("Length Y", float) = 100
+		_LengthZ("Length Z", float) = 100
 	}
 	SubShader
 	{
@@ -44,6 +45,7 @@
 			float _Speed;
 			float _LengthX;
 			float _LengthY;
+			float _LengthZ;
 			
 			v2f vert (appdata v)
 			{
@@ -60,7 +62,7 @@
 				
 				col = _Color * max(0, sin(i.worldPos.y * _LengthX + _Time.w * _Speed) + _Bias);
 				col += _Color * max(0, cos(i.worldPos.x * _LengthY) + _Bias);
-				
+				col += _Color * max(0, cos(i.worldPos.z * _LengthZ) + _Bias);
 				
 				return col;
 			}
