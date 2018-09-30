@@ -2,7 +2,7 @@
 
 public class PlacementDetect : TriggerDetection {
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         //Do something
         currColor = Color.black;

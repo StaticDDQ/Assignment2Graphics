@@ -56,4 +56,9 @@ public class DissolveObject : MonoBehaviour {
                 GetComponent<Collider>().enabled = true;
         }
     }
+
+    public bool GetIsOn()
+    {
+        return this.isOn;
+    }
 }
