@@ -24,16 +24,16 @@ public class PlayerMovement : MonoBehaviour {
         moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         moveDir = cam.TransformDirection(moveDir);
         moveDir.y = 0f;
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
+        {
+            rigidbody.AddForce(transform.up * jumpHeight, ForceMode.Impulse);
+        }
     }
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
-        {
-            rigidbody.AddForce(transform.up * jumpHeight, ForceMode.VelocityChange);
-        }
-
-        rigidbody.MovePosition(transform.position + Vector3.Normalize(moveDir) * Time.deltaTime * moveSpeed);
+        rigidbody.MovePosition(transform.position + Vector3.Normalize(moveDir) * Time.fixedDeltaTime * moveSpeed);
     }
 
     private bool isGrounded()

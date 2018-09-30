@@ -11,13 +11,13 @@ public class Buoyancy : MonoBehaviour {
     private void Start()
     {
         basePos = transform.position;
-        newPos = basePos + Vector3.down * 0.35f; 
+        newPos = basePos + Vector3.down * 0.25f; 
     }
 
     // Update is called once per frame
     void Update () {
         if(!isCollide)
-            transform.position = Vector3.Lerp(transform.position, basePos, Time.deltaTime * speed);
+            transform.position = Vector3.Lerp(transform.position, basePos, Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,6 +26,7 @@ public class Buoyancy : MonoBehaviour {
         {
             isCollide = true;
             StartCoroutine(PushDown());
+            other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
 
@@ -33,9 +34,9 @@ public class Buoyancy : MonoBehaviour {
     { 
 
         float elapsedTime = 0;
-        while (elapsedTime < 0.25f)
+        while (elapsedTime < 0.15f)
         {
-            transform.position = Vector3.Lerp(transform.position, newPos, elapsedTime*2);
+            transform.position = Vector3.Lerp(transform.position, newPos, elapsedTime*3);
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
