@@ -11,11 +11,13 @@ public class PlayerMovement : MonoBehaviour {
     public float height = 2f;
 
     private Vector3 moveDir = Vector3.zero;
+    private float distToGround;
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         cam = Camera.main.transform;
+        distToGround = GetComponent<Collider>().bounds.extents.y;
     }
 
     private void Update()
@@ -33,12 +35,10 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         rigidbody.MovePosition(transform.position + Vector3.Normalize(moveDir) * Time.deltaTime * moveSpeed);
-
-        rigidbody.AddForce(-transform.up * gravity, ForceMode.Acceleration);
     }
 
     private bool isGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, height);
+        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
     }
 }
