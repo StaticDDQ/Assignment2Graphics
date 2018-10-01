@@ -19,13 +19,16 @@ public class ColourDecider : MonoBehaviour {
         // Start with new color
         else if (currColor == Color.white)
             currColor = newColor;
-        // Color is mixed together
-        else
+        // Color is mixed together if color is not the same
+        else if (currColor != newColor)
+        {
             currColor = (currColor + newColor);
+            currColor.a = 1;
+        }
 
         // Applying the same color again will enlarge/shrink the object more
-        if ((GetComponent<EnlargeEffect>() != null && currColor == Color.red) ||
-            (GetComponent<ShrinkEffect>() != null && currColor == Color.blue))
+        if ((GetComponent<EnlargeEffect>() != null && newColor == Color.red) ||
+            (GetComponent<ShrinkEffect>() != null && newColor == Color.blue))
         {
             GetComponent<ColourEffect>().ApplyEffect();
         }

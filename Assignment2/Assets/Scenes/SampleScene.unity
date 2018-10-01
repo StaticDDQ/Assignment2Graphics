@@ -193,7 +193,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!64 &62467010
 MeshCollider:
@@ -592,6 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878059c3891a0764189f793ee4b54688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testColor: {r: 1, g: 0, b: 0, a: 1}
   target2: {fileID: 1826684717}
   target1: {fileID: 618114937}
   target: {fileID: 1554265208}
@@ -694,7 +695,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!64 &870035484
 MeshCollider:
@@ -778,10 +779,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 892865788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae2b83f1a5ca42e4a994938b54ccca1c, type: 3}
+  m_Script: {fileID: 11500000, guid: 633b4b227e04f1d4695e4bfbd07b9c34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   indicator: {fileID: 1924276842}
+  target: {fileID: 0}
 --- !u!1001 &1028578460
 Prefab:
   m_ObjectHideFlags: 0
@@ -851,7 +853,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!64 &1038735938
 MeshCollider:
