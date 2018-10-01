@@ -7,6 +7,6 @@
 
     public override void RevertEffect()
     {
-
+        base.RevertEffect();
     }
 }

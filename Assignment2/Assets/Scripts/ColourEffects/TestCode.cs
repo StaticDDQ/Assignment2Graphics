@@ -4,6 +4,8 @@
 public class TestCode : MonoBehaviour {
 
     public Color testColor;
+    public Color testColor1;
+    public Color testColor2;
     public GameObject target2;
     public GameObject target1;
     public GameObject target;
@@ -17,6 +19,14 @@ public class TestCode : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F))
         {
             target.GetComponent<ColourDecider>().SetEffect(testColor);
+        }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            target.GetComponent<ColourDecider>().SetEffect(testColor1);
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            target.GetComponent<ColourDecider>().SetEffect(testColor2);
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
