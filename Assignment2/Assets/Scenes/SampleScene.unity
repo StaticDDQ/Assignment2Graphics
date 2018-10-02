@@ -174,6 +174,10 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1264386318255914, guid: f888e9dd9cbb4dd43a2bdba5f8869681, type: 2}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f888e9dd9cbb4dd43a2bdba5f8869681, type: 2}
   m_IsPrefabParent: 0
@@ -190,7 +194,7 @@ GameObject:
   - component: {fileID: 62467010}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -336,7 +340,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 282840810}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 574284569}
@@ -383,7 +387,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 507570284}
   serializedVersion: 2
-  m_Mass: 4
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -482,7 +486,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dist: 2
-  rotSpeed: 80
+  smooth: 10
+  moveDown: 0.15
 --- !u!65 &507570293
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -505,8 +510,8 @@ GameObject:
   - component: {fileID: 574284569}
   - component: {fileID: 574284572}
   - component: {fileID: 574284565}
-  - component: {fileID: 574284567}
   - component: {fileID: 574284566}
+  - component: {fileID: 574284567}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -535,16 +540,16 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 574284564}
   serializedVersion: 2
-  m_Mass: 1.5
-  m_Drag: 0
+  m_Mass: 1
+  m_Drag: 2
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &574284567
-BoxCollider:
+--- !u!136 &574284567
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -552,8 +557,9 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
+  m_Radius: 0.5
+  m_Height: 2.75
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &574284569
 Transform:
@@ -562,7 +568,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 574284564}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 2.346}
+  m_LocalPosition: {x: 0, y: 3.09, z: 8.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 282840814}
@@ -651,7 +657,7 @@ GameObject:
   - component: {fileID: 870035484}
   m_Layer: 0
   m_Name: Ground (2)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -856,7 +862,7 @@ GameObject:
   - component: {fileID: 1038735938}
   m_Layer: 0
   m_Name: Ground (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1092,27 +1098,13 @@ GameObject:
   - component: {fileID: 1554265212}
   - component: {fileID: 1554265211}
   - component: {fileID: 1554265210}
-  - component: {fileID: 1554265209}
-  - component: {fileID: 1554265214}
   m_Layer: 0
-  m_Name: ColorObj
-  m_TagString: Magnetic
+  m_Name: Wall
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1554265209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1554265208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5ddb3ebe6955d142b0dd89eba674922, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!65 &1554265210
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1175,26 +1167,11 @@ Transform:
   m_GameObject: {fileID: 1554265208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.29, y: 4.15, z: 17.62}
-  m_LocalScale: {x: 4, y: 5, z: 1}
+  m_LocalScale: {x: 1.4157379, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1554265214
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1554265208}
-  serializedVersion: 2
-  m_Mass: 0.1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1721265141 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: f50935197251eb14d9eb0521ce1cdf65, type: 3}

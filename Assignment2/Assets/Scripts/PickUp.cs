@@ -3,11 +3,12 @@
 public class PickUp : MonoBehaviour {
 
 	[SerializeField] private float dist;
+    [SerializeField] private float smooth;
+    [SerializeField] private float moveDown;
 
 	private bool isCarried = false;
-
-    private Rigidbody body;
     private Transform mainCam;
+    private Rigidbody body;
 
     private void Start()
     {
@@ -20,18 +21,31 @@ public class PickUp : MonoBehaviour {
         isCarried = !isCarried;
         body.useGravity = !isCarried;
         body.freezeRotation = isCarried;
+        
 
         if (isCarried)
-            transform.SetParent(mainCam);
+        {
+            transform.SetParent(transform);
+        }
         else
+        {
             transform.SetParent(null);
+        }
     }
 
-	// Update is called once per frame
-	private void Update () {
+    private void OnTriggerEnter(Collider other)
+    {
+        if (isCarried && (other.tag == "Floor" || other.tag == "Wall"))
+        {
+            SetCarry();
+        }
+    }
+
+    // Update is called once per frame
+    private void Update () {
 
 		if (isCarried) {
-            transform.position = Vector3.Lerp(transform.position, mainCam.transform.position + mainCam.transform.forward * dist, Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, mainCam.position + mainCam.forward * dist - mainCam.up* moveDown, Time.deltaTime * smooth);
             
         }	
 	}
