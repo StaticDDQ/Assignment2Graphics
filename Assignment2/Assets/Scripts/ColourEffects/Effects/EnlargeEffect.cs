@@ -38,7 +38,7 @@ public class EnlargeEffect : ColourEffect {
         float elapsedTime = 0;
         while(elapsedTime < 2)
         {
-            transform.localScale = Vector3.Lerp(transform.localScale, baseScale, elapsedTime/2);
+            transform.localScale = Vector3.Lerp(transform.localScale, baseScale, elapsedTime * 0.5f);
             elapsedTime += Time.deltaTime;
             yield return null;
         }

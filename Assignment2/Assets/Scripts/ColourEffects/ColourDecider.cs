@@ -44,15 +44,18 @@ public class ColourDecider : MonoBehaviour {
         }
         #endregion
 
-        // If theres already an effect, remove it and replace it with another
-        if (GetComponent<ColourEffect>() != null)
+        if (ColourAssociate.ValidColor(currColor))
         {
-            GetComponent<ColourEffect>().RevertEffect();
-            reverting = true;
-        }
-        else
-        {
-            ColourAssociate.SelectColor(gameObject, currColor);
+            // If theres already an effect, remove it and replace it with another
+            if (GetComponent<ColourEffect>() != null)
+            {
+                GetComponent<ColourEffect>().RevertEffect();
+                reverting = true;
+            }
+            else
+            {
+                ColourAssociate.SelectColor(gameObject, currColor);
+            }
         }
     }
 }
