@@ -2,9 +2,10 @@
 
 public class PlacementDetect : TriggerDetection {
 
-    private void OnTriggerEnter(Collider other)
+    //Simple animation of color being changed when something triggers it
+
+    protected virtual void OnTriggerEnter(Collider other)
     {
-        //Do something
         currColor = Color.black;
 
         StopAllCoroutines();
@@ -13,7 +14,6 @@ public class PlacementDetect : TriggerDetection {
 
     private void OnTriggerExit(Collider other)
     {
-        // Do something else
         currColor = Color.white;
 
         StopAllCoroutines();

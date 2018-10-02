@@ -1,16 +1,18 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class ButtonDetect : TriggerDetection{
 
+    [SerializeField] private Event target;
+    
     private void Awake()
     {
         currColor = Color.white;
     }
 
+    // Play animation when it trigger an event successfully and button animation is done playing
     public void ButtonPressed()
     {
-        if (!GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsTag("1"))
+        if (target.TriggerEvent() && !GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsTag("1"))
         {
             GetComponent<Animator>().Play("ButtonPressed");
             isTriggered = !isTriggered;
@@ -22,7 +24,6 @@ public class ButtonDetect : TriggerDetection{
 
             StopAllCoroutines();
             StartCoroutine(TransitionEffect());
-            //Do Something
         }
     }
 }

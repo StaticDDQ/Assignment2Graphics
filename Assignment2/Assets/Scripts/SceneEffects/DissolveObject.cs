@@ -16,7 +16,7 @@ public class DissolveObject : MonoBehaviour {
         val = currVal;
     }
 
-    // Update is called once per frame
+    // Update is called once per frame, set the values for the object to dissolve. Completely dissolve object will have it's collider turned off
     void Update () {
         if (isOn)
         {
@@ -33,11 +33,13 @@ public class DissolveObject : MonoBehaviour {
             else
             {
                 isOn = false;
-                GetComponent<BoxCollider>().enabled = dissolving;
+                if(!dissolving)
+                    GetComponent<Collider>().enabled = false;
             }
         }
 	}
 
+    // Call a dissolving effect on the object
     public void DissolveOn()
     {
         if (!isOn)
@@ -50,6 +52,14 @@ public class DissolveObject : MonoBehaviour {
             max = temp;
 
             val = currVal;
+
+            if (dissolving)
+                GetComponent<Collider>().enabled = true;
         }
+    }
+
+    public bool GetIsOn()
+    {
+        return this.isOn;
     }
 }

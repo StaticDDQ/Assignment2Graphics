@@ -7,6 +7,7 @@ public class TriggerDetection : MonoBehaviour {
     protected Color currColor;
     protected bool isTriggered = false;
 
+    // Effect where some part of the model change color when triggered
     protected IEnumerator TransitionEffect()
     {
         float t = 0;
