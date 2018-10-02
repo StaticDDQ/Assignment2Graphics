@@ -5,17 +5,13 @@ public class EnlargeEffect : ColourEffect {
     private Vector3 maxSize = new Vector3(10, 10, 10);
     private Vector3 incrementScale = new Vector3(2, 2, 2);
     private Vector3 baseScale;
-    private bool isEnlarge = false;
     private Vector3 newScale;
 
-    private void Start()
-    {
-        baseScale = transform.localScale;
-    }
+    private bool isEnlarge = false;
 
     private void Update()
     {
-        if (isEnlarge)
+        if(isEnlarge)
             transform.localScale = Vector3.Lerp(transform.localScale, newScale, Time.deltaTime);
     }
 
@@ -24,6 +20,7 @@ public class EnlargeEffect : ColourEffect {
         if (!isEnlarge)
         {
             isEnlarge = true;
+            baseScale = transform.localScale;
             newScale = baseScale;
         }
         newScale = Vector3.Min(maxSize, newScale + incrementScale);
@@ -31,6 +28,7 @@ public class EnlargeEffect : ColourEffect {
 
     public override void RevertEffect()
     {
+        newScale = baseScale;
         isEnlarge = false;
         StartCoroutine(Reverting());
     }

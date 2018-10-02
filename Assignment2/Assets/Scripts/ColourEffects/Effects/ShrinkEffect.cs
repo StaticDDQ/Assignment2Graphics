@@ -5,17 +5,13 @@ public class ShrinkEffect : ColourEffect {
     private Vector3 minSize = new Vector3(1,1,1);
     private Vector3 incrementScale = new Vector3(2, 2, 2);
     private Vector3 baseScale;
-    private bool isEnlarge = false;
     private Vector3 newScale;
 
-    private void Start()
-    {
-        baseScale = transform.localScale;
-    }
+    private bool isEnlarge = false;
 
     private void Update()
     {
-        if(isEnlarge)
+        if (isEnlarge)
             transform.localScale = Vector3.Lerp(transform.localScale, newScale, Time.deltaTime);
     }
 
@@ -24,6 +20,7 @@ public class ShrinkEffect : ColourEffect {
         if (!isEnlarge)
         {
             isEnlarge = true;
+            baseScale = transform.localScale;
             newScale = baseScale;
         }
         newScale = Vector3.Max(minSize, newScale - incrementScale);
@@ -31,6 +28,7 @@ public class ShrinkEffect : ColourEffect {
 
     public override void RevertEffect()
     {
+        newScale = baseScale;
         isEnlarge = false;
         StartCoroutine(Reverting());
     }

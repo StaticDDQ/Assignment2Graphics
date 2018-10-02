@@ -6,6 +6,7 @@ public class TestCode : MonoBehaviour {
     public Color testColor;
     public Color testColor1;
     public Color testColor2;
+    public GameObject target3;
     public GameObject target2;
     public GameObject target1;
     public GameObject target;
@@ -31,6 +32,10 @@ public class TestCode : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.G))
         {
             target2.GetComponent<ButtonDetect>().ButtonPressed();
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            target3.GetComponent<PickUp>().SetCarry();
         }
     }
 }
