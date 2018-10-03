@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // Test if the code works
 public class TestCode : MonoBehaviour {
@@ -10,6 +11,8 @@ public class TestCode : MonoBehaviour {
     public GameObject target2;
     public GameObject target1;
     public GameObject target;
+
+    public GameObject sceneChange;
 
 	// Update is called once per frame
 	void Update () {
@@ -36,6 +39,10 @@ public class TestCode : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.C))
         {
             target3.GetComponent<PickUp>().SetCarry();
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            sceneChange.GetComponent<SceneFade>().BeginFade(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
