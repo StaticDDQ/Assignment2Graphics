@@ -11,7 +11,12 @@ public class SceneFade : MonoBehaviour {
 	private int fadeDir = -1;
     private bool isLoading = false;
 
-	private void OnGUI()
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void OnGUI()
 	{
 		alpha += fadeDir * fadeSpeed * Time.deltaTime;
 		alpha = Mathf.Clamp01 (alpha);
