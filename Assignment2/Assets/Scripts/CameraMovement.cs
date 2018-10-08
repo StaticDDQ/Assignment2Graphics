@@ -13,11 +13,6 @@ public class CameraMovement : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
 	}
 
-    private void OnTriggerExit(Collider other)
-    {
-        
-    }
-
     // Update is called once per frame
     void Update () {
         // Moving the pitch and yaw using mouse movement and applying a certain speed

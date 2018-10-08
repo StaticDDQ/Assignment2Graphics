@@ -6,25 +6,34 @@ public class ColourDecider : MonoBehaviour {
     [SerializeField] private Color currColor = Color.white;
     private bool reverting = false;
 
+    // Assign new effect once the previous one has been removed
     private void Update()
     {
         if(reverting && GetComponent<ColourEffect>() == null)
         {
-            reverting = true;
+            reverting = false;
             ColourAssociate.SelectColor(gameObject, currColor);
         }
     }
 
     // Setting the color to the object, apply effect based on color
-    public void SetEffect(Color newColor)
+    public bool SetEffect(Color newColor)
     {
+        // If color is being reverted
+        if (reverting)
+            return false;
+
+        #region AssignColor
         // Change color to white and remove the effect
         if (newColor == Color.white)
         {
             currColor = Color.white;
             if (GetComponent<ColourEffect>() != null)
+            {
                 GetComponent<ColourEffect>().RevertEffect();
-            return;
+                reverting = true;
+            }
+            return true;
         }
         else if (currColor == Color.white)
             currColor = newColor;
@@ -33,6 +42,7 @@ public class ColourDecider : MonoBehaviour {
             currColor = (currColor + newColor);
             currColor.a = 1;
         }
+        #endregion
 
         #region ScaleEffect
         // Applying the same color again will enlarge/shrink the object more
@@ -40,11 +50,11 @@ public class ColourDecider : MonoBehaviour {
             (GetComponent<ShrinkEffect>() != null && newColor == Color.blue))
         {
             GetComponent<ColourEffect>().ApplyEffect();
-            return;
         }
         #endregion
 
-        if (ColourAssociate.ValidColor(currColor))
+        #region AssignEffect
+        else if (ColourAssociate.ValidColor(currColor))
         {
             // If theres already an effect, remove it and replace it with another
             if (GetComponent<ColourEffect>() != null)
@@ -57,5 +67,8 @@ public class ColourDecider : MonoBehaviour {
                 ColourAssociate.SelectColor(gameObject, currColor);
             }
         }
+        #endregion
+
+        return true;
     }
 }

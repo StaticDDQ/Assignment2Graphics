@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+// Must have rigidbody for the player
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour {
 
     private new Rigidbody rigidbody;
@@ -7,7 +9,6 @@ public class PlayerMovement : MonoBehaviour {
     
     public float moveSpeed = 3f;
     public float jumpHeight = 5f;
-    public float height = 2f;
 
     private Vector3 moveDir = Vector3.zero;
     private float distToGround;

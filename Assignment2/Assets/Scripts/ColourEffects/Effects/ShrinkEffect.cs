@@ -3,7 +3,7 @@ using UnityEngine;
 public class ShrinkEffect : ColourEffect {
 
     private Vector3 minSize = new Vector3(1,1,1);
-    private Vector3 incrementScale = new Vector3(2, 2, 2);
+    private Vector3 incrementScale = new Vector3(0.5f, 0.5f, 0.5f);
     private Vector3 baseScale;
     private Vector3 newScale;
 
@@ -28,7 +28,6 @@ public class ShrinkEffect : ColourEffect {
 
     public override void RevertEffect()
     {
-        newScale = baseScale;
         isEnlarge = false;
         StartCoroutine(Reverting());
     }
@@ -36,12 +35,14 @@ public class ShrinkEffect : ColourEffect {
     private IEnumerator Reverting()
     {
         float elapsedTime = 0;
-        while (elapsedTime < 2)
+        while (elapsedTime < 1f)
         {
-            transform.localScale = Vector3.Lerp(transform.localScale, baseScale, elapsedTime / 2);
+            transform.localScale = Vector3.Lerp(transform.localScale, baseScale, elapsedTime * 0.75f);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+
+        transform.localScale = baseScale;
         Destroy(this);
     }
 }

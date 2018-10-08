@@ -19,13 +19,13 @@ public class PickUp : MonoBehaviour {
     public void SetCarry()
     {
         isCarried = !isCarried;
-        body.useGravity = !isCarried;
+        body.isKinematic = isCarried;
         body.freezeRotation = isCarried;
         
 
         if (isCarried)
         {
-            transform.SetParent(transform);
+            transform.SetParent(mainCam);
         }
         else
         {

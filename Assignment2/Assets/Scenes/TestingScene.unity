@@ -417,8 +417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf9827da1e38104690af207ca18adfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dist: 2
-  smooth: 10
+  dist: 2.25
+  smooth: 8
   moveDown: 0.15
 --- !u!65 &507570293
 BoxCollider:
