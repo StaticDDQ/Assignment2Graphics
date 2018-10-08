@@ -11,6 +11,7 @@
 	{
 		Tags{"Queue" = "Transparent"}
 
+		// Pass for the outline effect
 		Pass{
 
 			ZWrite Off
@@ -24,7 +25,7 @@
 			};
 
 			struct v2f {
-				float4 position : POSITION;
+				float4 vertex : POSITION;
 			};
 
 			float _OutlineWidth;
@@ -34,7 +35,7 @@
 				v.vertex.xyz *= _OutlineWidth;
 
 				v2f o;
-				o.position = UnityObjectToClipPos(v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				return o;
 			}
 			
@@ -44,7 +45,7 @@
 
 			ENDCG
 		}
-
+		// Pass for the regular vertices
 		Pass{
 
 			ZWrite On
