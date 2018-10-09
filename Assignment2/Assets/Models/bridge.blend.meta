@@ -7,24 +7,35 @@ ModelImporter:
     100002: Cube
     100004: ramp1
     100006: ramp2
+    100008: Cube_001
+    100010: Cube_002
     400000: //RootNode
     400002: Cube
     400004: ramp1
     400006: ramp2
+    400008: Cube_001
+    400010: Cube_002
     2100000: Material
     2300000: //RootNode
     2300002: Cube
     2300004: ramp1
     2300006: ramp2
+    2300008: Cube_001
+    2300010: Cube_002
     3300000: //RootNode
     3300002: Cube
     3300004: ramp1
     3300006: ramp2
+    3300008: Cube_001
+    3300010: Cube_002
     4300000: Cube
     4300002: ramp2
     4300004: ramp1
+    4300006: Cube_001
+    4300008: Cube_002
     7400000: Default Take
     9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 0

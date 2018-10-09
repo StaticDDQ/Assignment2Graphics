@@ -4,7 +4,6 @@ public class PickUp : MonoBehaviour {
 
 	[SerializeField] private float dist;
     [SerializeField] private float smooth;
-    [SerializeField] private float moveDown;
 
 	private bool isCarried = false;
     private Transform mainCam;
@@ -35,7 +34,7 @@ public class PickUp : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isCarried && (other.tag == "Floor" || other.tag == "Wall"))
+        if (isCarried && (other.tag == "Floor" || other.tag == "Wall" || other.tag == "Player"))
         {
             SetCarry();
         }
@@ -45,7 +44,7 @@ public class PickUp : MonoBehaviour {
     private void Update () {
 
 		if (isCarried) {
-            transform.position = Vector3.Lerp(transform.position, mainCam.position + mainCam.forward * dist - mainCam.up* moveDown, Time.deltaTime * smooth);
+            transform.position = Vector3.Lerp(transform.position, mainCam.position + mainCam.forward * dist, Time.deltaTime * smooth);
             
         }	
 	}
