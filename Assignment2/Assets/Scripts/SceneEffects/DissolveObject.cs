@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class DissolveObject : MonoBehaviour {
+public class DissolveObject : EventRequirements
+{
 
     private Material mat;
     [SerializeField] private float max, currVal;
@@ -40,19 +41,22 @@ public class DissolveObject : MonoBehaviour {
 	}
 
     // Call a dissolving effect on the object
-    public void DissolveOn()
+    public override void SendRequirement(bool dissolveOn)
     {
         if (!isOn)
         {
             isOn = true;
-            dissolving = !dissolving;
+            
+            if(dissolveOn != dissolving)
+            {
+                float temp = currVal;
+                currVal = max;
+                max = temp;
 
-            float temp = currVal;
-            currVal = max;
-            max = temp;
+                val = currVal;
+            }
 
-            val = currVal;
-
+            dissolving = dissolveOn;
             if (dissolving)
                 GetComponent<Collider>().enabled = true;
         }

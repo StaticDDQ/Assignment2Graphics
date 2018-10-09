@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class RaycastInteraction : MonoBehaviour {
 
     private RaycastHit hit;
     [SerializeField] private float distanceToSee = 3;
+    private bool isCarrying = false;
 
     // Update is called once per frame
     void Update () {
@@ -12,7 +14,8 @@ public class RaycastInteraction : MonoBehaviour {
         {
             if(hit.collider.tag == "PickUp")
             {
-                hit.collider.GetComponent<PickUp>().SetCarry();
+                isCarrying = !isCarrying;
+                hit.collider.GetComponent<PickUp>().SetCarry(isCarrying);
             }
             else if(hit.collider.tag == "Button")
             {

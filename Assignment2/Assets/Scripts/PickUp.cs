@@ -15,9 +15,9 @@ public class PickUp : MonoBehaviour {
         body = GetComponent<Rigidbody>();
     }
 
-    public void SetCarry()
+    public void SetCarry(bool isCarrying)
     {
-        isCarried = !isCarried;
+        isCarried = isCarrying;
         body.isKinematic = isCarried;
         body.freezeRotation = isCarried;
         
@@ -36,7 +36,7 @@ public class PickUp : MonoBehaviour {
     {
         if (isCarried && (other.tag == "Floor" || other.tag == "Wall" || other.tag == "Player"))
         {
-            SetCarry();
+            SetCarry(false);
         }
     }
 

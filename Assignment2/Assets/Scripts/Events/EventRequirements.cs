@@ -2,5 +2,5 @@
 
 public class EventRequirements : MonoBehaviour {
 
-	public virtual void SendRequirement(GameObject obj) {}
+	public virtual void SendRequirement(bool eventOn) {}
 }
