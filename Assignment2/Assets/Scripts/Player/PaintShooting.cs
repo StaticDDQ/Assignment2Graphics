@@ -16,7 +16,7 @@ public class PaintShooting : MonoBehaviour {
 	void Update () {
 
         Transform paintballSpawn = Camera.main.transform;
-        Debug.Log(paintballSpawn.forward);
+        //Debug.Log(paintballSpawn.forward);
         //paintballSpawn.localPosition += new Vector3(0.0f, -0.5f, 0.5f);
 
 		if (Input.GetMouseButtonDown(0))

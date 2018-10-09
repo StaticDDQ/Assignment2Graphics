@@ -4,7 +4,7 @@
 	{
 		_MainTex ("Texture", 2D) = "white" {}
 		_Color ("Color", Color) = (0,1,1,1)
-		_Transparency ("Transparency", Range(0.0, 0.5)) = 0.25
+		_Transparency ("Transparency", Range(0.0, 0.5)) = 0.5
 	}
 	SubShader
 	{
@@ -45,8 +45,8 @@
 			{
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
+
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-				UNITY_TRANSFER_FOG(o,o.vertex);
 				return o;
 			}
 			
