@@ -19,6 +19,7 @@ public class EnlargeEffect : ColourEffect {
     {
         if (!isEnlarge)
         {
+            gameObject.tag = "Colourable";
             isEnlarge = true;
             baseScale = transform.localScale;
             newScale = baseScale;
@@ -29,6 +30,7 @@ public class EnlargeEffect : ColourEffect {
     public override void RevertEffect()
     {
         isEnlarge = false;
+        gameObject.tag = "PickUp";
         StartCoroutine(Reverting());
     }
 

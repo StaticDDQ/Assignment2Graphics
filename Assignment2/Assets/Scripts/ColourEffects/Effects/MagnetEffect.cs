@@ -5,12 +5,12 @@ public class MagnetEffect : ColourEffect {
 
     public override void ApplyEffect()
     {
-        gameObject.tag = "Magnetic";
+        gameObject.layer = 8;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Magnetic")
+        if(collision.gameObject.layer == 8)
         {
             FixedJoint joint = gameObject.AddComponent<FixedJoint>();
             joint.connectedBody = collision.gameObject.GetComponent<Rigidbody>();
@@ -20,7 +20,7 @@ public class MagnetEffect : ColourEffect {
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Magnetic")
+        if (collision.gameObject.layer == 8)
         {
             Destroy(gameObject.GetComponent<FixedJoint>());
         }
@@ -28,7 +28,7 @@ public class MagnetEffect : ColourEffect {
 
     public override void RevertEffect()
     {
-        gameObject.tag = "Untagged";
+        gameObject.layer = 0;
         base.RevertEffect();
     }
 }

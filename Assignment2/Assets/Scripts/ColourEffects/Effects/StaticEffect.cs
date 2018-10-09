@@ -5,11 +5,13 @@ public class StaticEffect : ColourEffect {
     public override void ApplyEffect()
     {
         GetComponent<Rigidbody>().isKinematic = true;
+        gameObject.tag = "Colourable";
     }
 
     public override void RevertEffect()
     {
         GetComponent<Rigidbody>().isKinematic = false;
+        gameObject.tag = "PickUp";
         base.RevertEffect();
     }
 }

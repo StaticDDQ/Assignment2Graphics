@@ -33,15 +33,18 @@ public class ColourDecider : MonoBehaviour {
                 GetComponent<ColourEffect>().RevertEffect();
                 reverting = true;
             }
-            return true;
         }
         else if (currColor == Color.white)
+        {
             currColor = newColor;
+        }
         else
         {
             currColor = (currColor + newColor);
             currColor.a = 1;
         }
+
+        GetComponent<Renderer>().material.SetColor("_Color", currColor);
         #endregion
 
         #region ScaleEffect
