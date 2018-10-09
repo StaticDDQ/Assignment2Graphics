@@ -8,6 +8,8 @@ TagManager:
   - Magnetic
   - Wall
   - Source
+  - PickUp
+  - Button
   layers:
   - Default
   - TransparentFX
