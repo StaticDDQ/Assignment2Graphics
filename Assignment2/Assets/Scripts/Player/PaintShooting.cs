@@ -21,11 +21,12 @@ public class PaintShooting : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown(0))
         {
+            Color eyedrop = this.GetComponent<ColorPickerRayCasting>().colorPreview;
             var paintball = (GameObject)Instantiate(paintballPrefab,
                 paintballSpawn.position + paintballSpawn.forward,
                 paintballSpawn.rotation);
             paintball.GetComponent<Rigidbody>().velocity = paintballSpawn.forward * paintballSpeed;
-            paintball.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+            paintball.GetComponent<Renderer>().material.SetColor("_Color", eyedrop);
 
             Destroy(paintball, 2.0f);
         }
