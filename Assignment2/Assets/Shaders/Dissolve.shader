@@ -5,10 +5,8 @@ Shader "Custom/Dissolve"
 	{
 		_MainTex ("Texture", 2D) = "white" {}
 		_DissolveTex("Dissolve Texture", 2D) = "white" {}
-		_DissolveY("Current Y of Dissolve Effect", Range(0,5)) = -5
+		_DissolveY("Current Y of Dissolve Effect", Range(0,5)) = 0
 		_DissolveSize("Length of the effect", float) = 2
-		_Speed("Dissolve Speed", float) = 2
-		_StartTime("Start Time", float) = 10
 	}
 	SubShader
 	{
@@ -41,8 +39,6 @@ Shader "Custom/Dissolve"
 			sampler2D _DissolveTex;
 			float _DissolveY;
 			float _DissolveSize;
-			float _Speed;
-			float _StartTime;
 
 			v2f vert (appdata v)
 			{
