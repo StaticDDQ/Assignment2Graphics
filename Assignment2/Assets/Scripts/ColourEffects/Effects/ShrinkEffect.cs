@@ -2,8 +2,8 @@
 using UnityEngine;
 public class ShrinkEffect : ColourEffect {
 
-    private Vector3 minSize = new Vector3(1,1,1);
-    private Vector3 incrementScale = new Vector3(0.5f, 0.5f, 0.5f);
+    private Vector3 minSize = new Vector3(0.5f,0.5f,0.5f);
+    private Vector3 incrementScale = new Vector3(0.25f, 0.25f, 0.25f);
     private Vector3 baseScale;
     private Vector3 newScale;
 

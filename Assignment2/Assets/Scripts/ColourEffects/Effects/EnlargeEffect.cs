@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnlargeEffect : ColourEffect {
 
     private Vector3 maxSize = new Vector3(10, 10, 10);
-    private Vector3 incrementScale = new Vector3(0.5f, 0.5f, 0.5f);
+    private Vector3 incrementScale = new Vector3(0.25f, 0.25f, 0.25f);
     private Vector3 baseScale;
     private Vector3 newScale;
 
