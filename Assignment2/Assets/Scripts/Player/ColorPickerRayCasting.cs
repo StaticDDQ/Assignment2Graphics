@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ColorPickerRayCasting : MonoBehaviour {
 
     public Color colorPreview;
+    public Image crosshair;
 
     private RaycastHit hit;
     private bool hasColor = false;

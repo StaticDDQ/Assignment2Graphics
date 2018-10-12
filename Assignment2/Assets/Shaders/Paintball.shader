@@ -3,7 +3,7 @@
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
-		_Color ("Color", Color) = (0,1,1,1)
+		_Color ("Color", Color) = (1,1,1,1)
 		_Transparency ("Transparency", Range(0.0, 0.5)) = 0.5
 	}
 	SubShader
