@@ -26,5 +26,6 @@ public class PaintballCollision : MonoBehaviour {
             Color c = GetComponent<Renderer>().material.color;
             collided.GetComponent<ColourDecider>().SetEffect(c);
         }
+        Destroy(gameObject);
     }
 }
