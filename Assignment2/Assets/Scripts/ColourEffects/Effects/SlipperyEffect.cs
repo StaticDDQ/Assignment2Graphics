@@ -7,7 +7,8 @@ public class SlipperyEffect : ColourEffect {
         // Simply apply a slippery physics material to an object
         if(gameObject.tag != "Floor")
         {
-            GetComponent<Rigidbody>().mass = 0.1f;
+            GetComponent<Rigidbody>().mass = 0.01f;
+            GetComponent<Rigidbody>().angularDrag = 0f;
             PhysicMaterial slippery = new PhysicMaterial
             {
                 dynamicFriction = 0.005f,

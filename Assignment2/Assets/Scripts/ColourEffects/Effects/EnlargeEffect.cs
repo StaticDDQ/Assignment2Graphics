@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnlargeEffect : ColourEffect {
 
     private Vector3 maxSize = new Vector3(10, 10, 10);
-    private Vector3 incrementScale = new Vector3(0.25f, 0.25f, 0.25f);
+    private Vector3 incrementScale = new Vector3(0.5f, 0.5f, 0.5f);
     private Vector3 baseScale;
     private Vector3 newScale;
 
@@ -13,13 +13,16 @@ public class EnlargeEffect : ColourEffect {
     {
         if(isEnlarge)
             transform.localScale = Vector3.Lerp(transform.localScale, newScale, Time.deltaTime);
+        if (transform.localScale.x > 1.1f)
+        {
+            gameObject.tag = "Colourable";
+        }
     }
 
     public override void ApplyEffect()
     {
         if (!isEnlarge)
         {
-            gameObject.tag = "Colourable";
             isEnlarge = true;
             baseScale = transform.localScale;
             newScale = baseScale;
@@ -30,7 +33,6 @@ public class EnlargeEffect : ColourEffect {
     public override void RevertEffect()
     {
         isEnlarge = false;
-        gameObject.tag = "PickUp";
         StartCoroutine(Reverting());
     }
 
@@ -45,6 +47,12 @@ public class EnlargeEffect : ColourEffect {
         }
 
         transform.localScale = baseScale;
+
+        if (transform.localScale.x < 1.1f)
+        {
+            gameObject.tag = "PickUp";
+        }
+
         Destroy(this);
     }
 }

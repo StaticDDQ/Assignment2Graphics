@@ -3,7 +3,7 @@ using UnityEngine;
 public class ShrinkEffect : ColourEffect {
 
     private Vector3 minSize = new Vector3(0.5f,0.5f,0.5f);
-    private Vector3 incrementScale = new Vector3(0.25f, 0.25f, 0.25f);
+    private Vector3 incrementScale = new Vector3(0.5f, 0.5f, 0.5f);
     private Vector3 baseScale;
     private Vector3 newScale;
 
@@ -13,6 +13,10 @@ public class ShrinkEffect : ColourEffect {
     {
         if (isEnlarge)
             transform.localScale = Vector3.Lerp(transform.localScale, newScale, Time.deltaTime);
+        if (transform.localScale.x < 1.1f)
+        {
+            gameObject.tag = "PickUp";
+        }
     }
 
     public override void ApplyEffect()
@@ -43,6 +47,12 @@ public class ShrinkEffect : ColourEffect {
         }
 
         transform.localScale = baseScale;
+
+        if (transform.localScale.x > 1.1f)
+        {
+            gameObject.tag = "Colourable";
+        }
+
         Destroy(this);
     }
 }
