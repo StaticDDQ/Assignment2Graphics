@@ -1,26 +1,27 @@
 fileFormatVersion: 2
-guid: f715ec07026c82b48aa5f982c6088322
+guid: dc6809b68f2ba794086f7efeba356caa
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: base
-    100002: energy
-    100004: //RootNode
-    100006: glass
-    400000: base
-    400002: energy
-    400004: //RootNode
-    400006: glass
-    2100000: No Name
-    2300000: base
-    2300002: energy
-    2300004: glass
-    3300000: base
-    3300002: energy
-    3300004: glass
-    4300000: energy
-    4300002: glass
-    4300004: base
+    100000: //RootNode
+    100002: Cube.001
+    100004: ramp1
+    100006: ramp2
+    400000: //RootNode
+    400002: Cube.001
+    400004: ramp1
+    400006: ramp2
+    2100000: Material
+    2300000: Cube.001
+    2300002: ramp1
+    2300004: ramp2
+    3300000: Cube.001
+    3300002: ramp1
+    3300004: ramp2
+    4300000: Cube.001
+    4300002: ramp2
+    4300004: ramp1
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1

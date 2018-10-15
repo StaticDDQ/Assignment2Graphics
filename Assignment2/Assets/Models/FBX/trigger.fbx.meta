@@ -1,26 +1,24 @@
 fileFormatVersion: 2
-guid: 17ac1681d3765ee42bae14e422e84228
+guid: 043ffbfc62b05f546972aa92d718f2a5
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Cube
-    100002: //RootNode
-    100004: indicator
-    400000: Cube
-    400002: //RootNode
-    400004: indicator
+    100000: base
+    100002: base.001
+    100004: //RootNode
+    400000: base
+    400002: base.001
+    400004: //RootNode
     2100000: Material
-    2300000: Cube
-    2300002: indicator
-    3300000: Cube
-    3300002: indicator
-    4300000: indicator
-    4300002: Cube
-    7400000: Default Take
-    9500000: //RootNode
+    2300000: base
+    2300002: base.001
+    3300000: base
+    3300002: base.001
+    4300000: base.001
+    4300002: base
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -52,10 +50,10 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importVisibility: 0
+    importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -74,7 +72,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -93,7 +91,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
