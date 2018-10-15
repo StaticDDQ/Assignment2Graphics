@@ -15,16 +15,13 @@ public class ColorPickerRayCasting : MonoBehaviour {
     {
         if (Input.GetMouseButton(1) && Physics.Raycast(this.transform.position, this.transform.forward, out hit, distanceToSee) && hit.collider.tag == "Source")
         {
-            Debug.Log("Ray casted");
             var material = hit.collider.GetComponent<Renderer>().material;
             Color c = material.color;
-            Debug.Log(c.ToString());
 
             var tex2D = material.mainTexture as Texture2D;
             if (tex2D != null)
             {
                 c = tex2D.GetPixelBilinear(hit.textureCoord[0], hit.textureCoord[1]);
-                Debug.Log(c.ToString());
             }
             hasColor = true;
             colorPreview = c;

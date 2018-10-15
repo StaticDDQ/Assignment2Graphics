@@ -6,7 +6,7 @@ public class SceneFade: MonoBehaviour {
 
     public static SceneFade instance;
 
-	[SerializeField] private readonly Texture2D fadeOutText;
+	[SerializeField] private Texture2D fadeOutText;
 	[SerializeField] private readonly float fadeSpeed = 0.8f;
 
 	private float alpha = 1.0f;

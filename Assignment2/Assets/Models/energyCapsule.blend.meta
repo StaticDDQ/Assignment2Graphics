@@ -12,6 +12,9 @@ ModelImporter:
     400004: //RootNode
     400006: glass
     2100000: unnamed
+    2100002: base
+    2100004: indicator
+    2100006: base2
     2300000: base
     2300002: energy
     2300004: glass
@@ -25,9 +28,39 @@ ModelImporter:
     4300004: base
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 7142ce21b3a84594d84da7c563d56867, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_001
+    second: {fileID: 2100000, guid: 532f2ff60ad1dda47bf693a690555864, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base
+    second: {fileID: 2100000, guid: 7142ce21b3a84594d84da7c563d56867, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base2
+    second: {fileID: 10756, guid: 0000000000000000e000000000000000, type: 0}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: indicator
+    second: {fileID: 2100000, guid: 532f2ff60ad1dda47bf693a690555864, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: unnamed
+    second: {fileID: 2100000, guid: a80504532bb0eea4ca0a4c40efcf9ae0, type: 2}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
