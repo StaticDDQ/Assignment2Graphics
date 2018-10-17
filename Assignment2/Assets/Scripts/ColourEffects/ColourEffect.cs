@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 // Attachments for objects
+[RequireComponent(typeof(Rigidbody))]
 public class ColourEffect : MonoBehaviour {
 
     // When interacted, apply given effect based on the color
