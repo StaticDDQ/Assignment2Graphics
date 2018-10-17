@@ -31,6 +31,11 @@ public class PlayerMovement : MonoBehaviour {
             rigidbody.AddForce(transform.up * jumpHeight, ForceMode.Impulse);
         }
 
+       
+    }
+
+    private void FixedUpdate()
+    {
         rigidbody.MovePosition(transform.position + Vector3.Normalize(moveDir) * Time.fixedDeltaTime * moveSpeed);
     }
 

@@ -14,6 +14,8 @@ public class ButtonDetect : TriggerDetection{
     {
         if (target.TriggerEvent() && !GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsTag("1"))
         {
+            GetComponent<AudioSource>().Play();
+            
             GetComponent<Animator>().Play("ButtonPressed");
             isTriggered = !isTriggered;
 

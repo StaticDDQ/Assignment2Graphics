@@ -10,6 +10,7 @@ public class WeightTrigger : PlacementDetect {
     protected override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
+        GetComponent<AudioSource>().Play();
         if(!isOn && other.tag == "PickUp")
         {
             isOn = true;
