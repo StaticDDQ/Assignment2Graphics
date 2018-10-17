@@ -3,8 +3,10 @@ using UnityEngine;
 public class ShrinkEffect : ColourEffect {
 
     private Vector3 minSize = new Vector3(0.5f,0.5f,0.5f);
+    private float minMass = 2f;
     private Vector3 incrementScale = new Vector3(0.5f, 0.5f, 0.5f);
     private Vector3 baseScale;
+    private float baseMass;
     private Vector3 newScale;
 
     private bool isEnlarge = false;
@@ -13,10 +15,6 @@ public class ShrinkEffect : ColourEffect {
     {
         if (isEnlarge)
             transform.localScale = Vector3.Lerp(transform.localScale, newScale, Time.deltaTime);
-        if (transform.localScale.x < 1.1f)
-        {
-            gameObject.tag = "PickUp";
-        }
     }
 
     public override void ApplyEffect()
@@ -26,8 +24,16 @@ public class ShrinkEffect : ColourEffect {
             isEnlarge = true;
             baseScale = transform.localScale;
             newScale = baseScale;
+            baseMass = GetComponent<Rigidbody>().mass;
         }
+
         newScale = Vector3.Max(minSize, newScale - incrementScale);
+        GetComponent<Rigidbody>().mass = Mathf.Max(minMass, GetComponent<Rigidbody>().mass - 2f);
+
+        if (GetComponent<Rigidbody>().mass <= 4f)
+        {
+            gameObject.tag = "PickUp";
+        }
     }
 
     public override void RevertEffect()
@@ -47,8 +53,9 @@ public class ShrinkEffect : ColourEffect {
         }
 
         transform.localScale = baseScale;
+        GetComponent<Rigidbody>().mass = baseMass;
 
-        if (transform.localScale.x > 1.1f)
+        if (GetComponent<Rigidbody>().mass > 4f)
         {
             gameObject.tag = "Colourable";
         }

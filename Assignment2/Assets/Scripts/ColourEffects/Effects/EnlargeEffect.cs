@@ -2,9 +2,11 @@
 using UnityEngine;
 public class EnlargeEffect : ColourEffect {
 
-    private Vector3 maxSize = new Vector3(10, 10, 10);
+    private Vector3 maxSize = new Vector3(6, 6, 6);
+    private float maxMass = 24f;
     private Vector3 incrementScale = new Vector3(0.5f, 0.5f, 0.5f);
     private Vector3 baseScale;
+    private float baseMass;
     private Vector3 newScale;
 
     private bool isEnlarge = false;
@@ -13,10 +15,6 @@ public class EnlargeEffect : ColourEffect {
     {
         if(isEnlarge)
             transform.localScale = Vector3.Lerp(transform.localScale, newScale, Time.deltaTime);
-        if (transform.localScale.x > 1.1f)
-        {
-            gameObject.tag = "Colourable";
-        }
     }
 
     public override void ApplyEffect()
@@ -26,8 +24,16 @@ public class EnlargeEffect : ColourEffect {
             isEnlarge = true;
             baseScale = transform.localScale;
             newScale = baseScale;
+            baseMass = GetComponent<Rigidbody>().mass;
         }
+        
         newScale = Vector3.Min(maxSize, newScale + incrementScale);
+        GetComponent<Rigidbody>().mass = Mathf.Min(maxMass, GetComponent<Rigidbody>().mass + 2f);
+
+        if (GetComponent<Rigidbody>().mass > 4f)
+        {
+            gameObject.tag = "Colourable";
+        }
     }
 
     public override void RevertEffect()
@@ -47,8 +53,9 @@ public class EnlargeEffect : ColourEffect {
         }
 
         transform.localScale = baseScale;
+        GetComponent<Rigidbody>().mass = baseMass;
 
-        if (transform.localScale.x < 1.1f)
+        if (GetComponent<Rigidbody>().mass <= 4f)
         {
             gameObject.tag = "PickUp";
         }
