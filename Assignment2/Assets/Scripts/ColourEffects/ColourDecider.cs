@@ -38,7 +38,7 @@ public class ColourDecider : MonoBehaviour {
         {
             currColor = newColor;
         }
-        else
+        else if (currColor != newColor)
         {
             currColor = (currColor + newColor);
             currColor.a = 1;

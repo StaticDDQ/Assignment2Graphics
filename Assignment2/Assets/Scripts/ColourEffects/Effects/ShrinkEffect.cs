@@ -14,7 +14,7 @@ public class ShrinkEffect : ColourEffect {
     private void Update()
     {
         if (isEnlarge)
-            transform.localScale = Vector3.Lerp(transform.localScale, newScale, Time.deltaTime);
+            transform.localScale = Vector3.Lerp(transform.localScale, newScale, Time.deltaTime * 0.9f);
     }
 
     public override void ApplyEffect()
