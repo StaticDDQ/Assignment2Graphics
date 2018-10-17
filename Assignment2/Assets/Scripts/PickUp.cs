@@ -32,6 +32,14 @@ public class PickUp : MonoBehaviour {
         }
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Floor")
+        {
+            GetComponent<AudioSource>().Play();
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (isCarried && (other.tag == "Floor" || other.tag == "Wall" || other.tag == "Player"))
