@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: liquid
-  m_Shader: {fileID: 4800000, guid: c0112e94c63d8634092884e57c0f42fb, type: 3}
+  m_Shader: {fileID: 4800000, guid: e96957bbcbaec6343a92e58b289c1a0e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -50,6 +50,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: f433c91715da07e4cb7e6243b543a982, type: 3}
+        m_Scale: {x: 0, y: 0}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -85,6 +89,8 @@ Material:
     - _SrcBlend: 1
     - _Transparency: 0.5
     - _UVSec: 0
+    - _WaveAmplitude: 0.025
+    - _WaveOscillation: 5
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
