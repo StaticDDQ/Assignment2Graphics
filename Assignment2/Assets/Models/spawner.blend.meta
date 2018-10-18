@@ -1,21 +1,35 @@
 fileFormatVersion: 2
-guid: 4a4b2d8377c09154fa766c4210c3ec13
+guid: 37444032d22acd54aab39e26695333c2
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Cylinder
+    100004: Cylinder_001
     400000: //RootNode
-    2100000: unnamed
+    400002: Cylinder
+    400004: Cylinder_001
+    2100000: base
+    2100002: light
+    2100004: Material
     2300000: //RootNode
+    2300002: Cylinder
+    2300004: Cylinder_001
     3300000: //RootNode
-    4300000: Cube
-    4300002: barrier
+    3300002: Cylinder
+    3300004: Cylinder_001
+    4300000: Cylinder
+    4300002: Cylinder_001
     7400000: Default Take
     9500000: //RootNode
-    2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: light
+    second: {fileID: 2100000, guid: 532f2ff60ad1dda47bf693a690555864, type: 2}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -47,10 +61,10 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importVisibility: 0
+    importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1

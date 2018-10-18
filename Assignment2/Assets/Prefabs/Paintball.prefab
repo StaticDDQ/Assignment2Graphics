@@ -112,6 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 547d974a9f116154c88847ee0e319ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paintScatterPrefab: {fileID: 1619990370921704, guid: aa8864cf4e3b53b48a03cf727e567f67,
+    type: 2}
 --- !u!135 &135234174381318922
 SphereCollider:
   m_ObjectHideFlags: 1
