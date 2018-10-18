@@ -5,6 +5,7 @@ public class PickUp : MonoBehaviour {
 	[SerializeField] private float dist;
     [SerializeField] private float smooth;
 
+    private bool isGrounded = true;
 	private bool isCarried = false;
     private Transform mainCam;
     private Rigidbody body;
@@ -34,10 +35,19 @@ public class PickUp : MonoBehaviour {
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Floor")
+        if (!isGrounded && other.gameObject.tag == "Floor")
         {
             GetComponent<AudioSource>().Play();
+            isGrounded = true;
         }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "Floor")
+        {
+            isGrounded = false;
+        }    
     }
 
     private void OnTriggerEnter(Collider other)

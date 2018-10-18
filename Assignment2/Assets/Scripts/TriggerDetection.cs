@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class TriggerDetection : MonoBehaviour {
 
@@ -7,8 +8,13 @@ public class TriggerDetection : MonoBehaviour {
     protected bool isTriggered = false;
 
     // Effect where some part of the model change color when triggered
-    protected void TransitionEffect()
+    protected IEnumerator TransitionEffect()
     {
-            indicator.material.SetColor("_EmissionColor", currColor);
+        float elapsedTime = 0f;
+        while (elapsedTime < 1f) {
+            indicator.material.SetColor("_EmissionColor", Color.Lerp(indicator.material.GetColor("_EmissionColor"), currColor,elapsedTime));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
     }
 }
