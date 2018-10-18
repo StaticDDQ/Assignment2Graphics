@@ -2,14 +2,11 @@
 
 // Attachments for objects
 [RequireComponent(typeof(Rigidbody))]
-public class ColourEffect : MonoBehaviour {
+public abstract class ColourEffect : MonoBehaviour {
 
     // When interacted, apply given effect based on the color
-    public virtual void ApplyEffect(){}
+    public abstract void ApplyEffect();
 
     // If the effect were to be removed
-    public virtual void RevertEffect()
-    {
-        Destroy(this);
-    }
+    public abstract void RevertEffect();
 }

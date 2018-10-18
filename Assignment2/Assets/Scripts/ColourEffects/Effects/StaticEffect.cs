@@ -12,6 +12,6 @@ public class StaticEffect : ColourEffect {
     {
         GetComponent<Rigidbody>().isKinematic = false;
         gameObject.tag = "PickUp";
-        base.RevertEffect();
+        Destroy(this);
     }
 }

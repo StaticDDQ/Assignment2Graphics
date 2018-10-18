@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class EventRequirements : MonoBehaviour {
+public abstract class EventRequirements : MonoBehaviour {
 
-	public virtual void SendRequirement(bool eventOn) {}
+    public abstract void SendRequirement(bool eventOn);
 }

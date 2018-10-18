@@ -6,15 +6,11 @@ public class PlacementDetect : TriggerDetection {
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        currColor = Color.black;
-        StopAllCoroutines();
-        StartCoroutine(TransitionEffect());
+        TransitionEffect(Color.black);
     }
 
     protected virtual void OnTriggerExit(Collider other)
     {
-        currColor = Color.white;
-        StopAllCoroutines();
-        StartCoroutine(TransitionEffect());
+        TransitionEffect(Color.white);
     }
 }

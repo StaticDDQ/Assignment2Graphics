@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 
-public class Event : MonoBehaviour {
+public abstract class Event : MonoBehaviour {
 
     // Returns true if event ended up successful
-    public virtual bool TriggerEvent ()
-    {
-        return true;
-    }
+    public abstract bool TriggerEvent();
 }

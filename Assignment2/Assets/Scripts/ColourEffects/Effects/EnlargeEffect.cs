@@ -2,20 +2,15 @@
 using UnityEngine;
 public class EnlargeEffect : ColourEffect {
 
-    private Vector3 maxSize = new Vector3(6, 6, 6);
-    private float maxMass = 24f;
-    private Vector3 incrementScale = new Vector3(0.5f, 0.5f, 0.5f);
+    private readonly Vector3 maxSize = new Vector3(6, 6, 6);
+    private readonly Vector3 incrementScale = new Vector3(0.5f, 0.5f, 0.5f);
+    private readonly float maxMass = 24f;
+
     private Vector3 baseScale;
-    private float baseMass;
     private Vector3 newScale;
+    private float baseMass;
 
     private bool isEnlarge = false;
-
-    private void Update()
-    {
-        if(isEnlarge)
-            transform.localScale = Vector3.Lerp(transform.localScale, newScale, Time.deltaTime * 0.9f);
-    }
 
     public override void ApplyEffect()
     {
@@ -61,5 +56,13 @@ public class EnlargeEffect : ColourEffect {
         }
 
         Destroy(this);
+    }
+
+    private void Update()
+    {
+        if (isEnlarge)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, newScale, Time.deltaTime * 0.9f);
+        }
     }
 }

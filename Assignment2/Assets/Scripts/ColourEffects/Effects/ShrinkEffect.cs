@@ -2,20 +2,15 @@
 using UnityEngine;
 public class ShrinkEffect : ColourEffect {
 
-    private Vector3 minSize = new Vector3(0.5f,0.5f,0.5f);
-    private float minMass = 2f;
-    private Vector3 incrementScale = new Vector3(0.5f, 0.5f, 0.5f);
+    private readonly Vector3 minSize = new Vector3(0.5f,0.5f,0.5f);
+    private readonly Vector3 incrementScale = new Vector3(0.5f, 0.5f, 0.5f);
+    private readonly float minMass = 2f;
+    
     private Vector3 baseScale;
-    private float baseMass;
     private Vector3 newScale;
+    private float baseMass;
 
     private bool isEnlarge = false;
-
-    private void Update()
-    {
-        if (isEnlarge)
-            transform.localScale = Vector3.Lerp(transform.localScale, newScale, Time.deltaTime * 0.9f);
-    }
 
     public override void ApplyEffect()
     {
@@ -61,5 +56,13 @@ public class ShrinkEffect : ColourEffect {
         }
 
         Destroy(this);
+    }
+
+    private void Update()
+    {
+        if (isEnlarge)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, newScale, Time.deltaTime * 0.9f);
+        }
     }
 }

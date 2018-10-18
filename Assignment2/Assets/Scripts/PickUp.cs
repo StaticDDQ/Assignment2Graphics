@@ -5,6 +5,7 @@ public class PickUp : MonoBehaviour {
 	[SerializeField] private float dist;
     [SerializeField] private float smooth;
 
+    private bool playerTouched = false;
     private bool isGrounded = true;
 	private bool isCarried = false;
     private Transform mainCam;
@@ -18,27 +19,33 @@ public class PickUp : MonoBehaviour {
 
     public void SetCarry(bool isCarrying)
     {
-        isCarried = isCarrying;
-        body.isKinematic = isCarried;
-        body.freezeRotation = isCarried;
-        
+        if (!playerTouched)
+        {
+            isCarried = isCarrying;
+            body.isKinematic = isCarried;
+            body.freezeRotation = isCarried;
 
-        if (isCarried)
-        {
-            transform.SetParent(mainCam);
-        }
-        else
-        {
-            transform.SetParent(null);
+            if (isCarried)
+            {
+                transform.SetParent(mainCam);
+            }
+            else
+            {
+                transform.SetParent(null);
+            }
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionStay(Collision other)
     {
         if (!isGrounded && other.gameObject.tag == "Floor")
         {
             GetComponent<AudioSource>().Play();
             isGrounded = true;
+        }
+        if(other.gameObject.tag == "Player")
+        {
+            playerTouched = true;
         }
     }
 
@@ -47,12 +54,15 @@ public class PickUp : MonoBehaviour {
         if (other.gameObject.tag == "Floor")
         {
             isGrounded = false;
-        }    
+        } else if(other.gameObject.tag == "Player")
+        {
+            playerTouched = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isCarried && (other.tag == "Floor" || other.tag == "Wall" || other.tag == "Player"))
+        if (isCarried && (other.tag == "Floor" || other.tag == "Wall"))
         {
             SetCarry(false);
         }
@@ -60,10 +70,8 @@ public class PickUp : MonoBehaviour {
 
     // Update is called once per frame
     private void Update () {
-
 		if (isCarried) {
-            transform.position = Vector3.Lerp(transform.position, mainCam.position + mainCam.forward * dist, Time.deltaTime * smooth);
-            
+            transform.position = Vector3.Lerp(transform.position, mainCam.position + mainCam.forward * dist, Time.deltaTime * smooth);   
         }	
 	}
 }

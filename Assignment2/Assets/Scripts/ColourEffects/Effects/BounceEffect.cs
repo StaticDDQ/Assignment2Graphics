@@ -10,14 +10,13 @@ public class BounceEffect : ColourEffect
         {
             currClip = GetComponent<AudioSource>().clip;
             bounceClip = Resources.Load<AudioClip>("bounce");
-            Debug.Log(bounceClip);
         }
 
         GetComponent<AudioSource>().clip = bounceClip;
         // Add a bouncy physics material to the object
         PhysicMaterial bounce = new PhysicMaterial
         {
-            bounciness = 0.8f,
+            bounciness = 0.95f,
             bounceCombine = PhysicMaterialCombine.Maximum
         };
 
@@ -28,6 +27,7 @@ public class BounceEffect : ColourEffect
     {
         GetComponent<AudioSource>().clip = currClip;
         GetComponent<BoxCollider>().material = null;
-        base.RevertEffect();
+
+        Destroy(this);
     }
 }

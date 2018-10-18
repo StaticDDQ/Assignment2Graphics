@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-public class DissolveObject : EventRequirements
-{
+public class DissolveObject : EventRequirements {
     
     private Material mat;
     [SerializeField] private float max, currVal;
@@ -18,8 +17,9 @@ public class DissolveObject : EventRequirements
         val = currVal;
     }
 
-    // Update is called once per frame, set the values for the object to dissolve. Completely dissolve object will have it's collider turned off
-    void Update () {
+    // Update is called once per frame, set the values for the object to dissolve. 
+    // Completely dissolved object will have it's collider turned off
+    private void Update () {
         if (isOn)
         {
             if(!dissolving && val < max)
@@ -59,7 +59,9 @@ public class DissolveObject : EventRequirements
 
             dissolving = dissolveOn;
             if (dissolving)
+            {
                 GetComponent<Collider>().enabled = true;
+            }
 
             GetComponent<AudioSource>().pitch = audioSpeed;
             if(audioSpeed < 0)

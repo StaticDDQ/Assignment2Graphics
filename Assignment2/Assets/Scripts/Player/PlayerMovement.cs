@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour {
         moveDir = cam.TransformDirection(moveDir);
         moveDir.y = 0f;
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             rigidbody.AddForce(transform.up * jumpHeight, ForceMode.Impulse);
         }
@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour {
         rigidbody.AddForce(-transform.up * gravity, ForceMode.Acceleration);
     }
 
-    private bool isGrounded()
+    private bool IsGrounded()
     {
         return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
     }

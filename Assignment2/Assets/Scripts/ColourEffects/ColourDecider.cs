@@ -12,7 +12,10 @@ public class ColourDecider : MonoBehaviour {
         if(reverting && GetComponent<ColourEffect>() == null)
         {
             reverting = false;
-            ColourAssociate.SelectColor(gameObject, currColor);
+            if (currColor != Color.white)
+            {
+                ColourAssociate.SelectColor(gameObject, currColor);
+            }
         }
     }
 

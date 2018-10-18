@@ -29,6 +29,10 @@ public class MagnetEffect : ColourEffect {
     public override void RevertEffect()
     {
         gameObject.layer = 0;
-        base.RevertEffect();
+        if(gameObject.GetComponent<FixedJoint>() != null)
+        {
+            Destroy(gameObject.GetComponent<FixedJoint>());
+        }
+        Destroy(this);
     }
 }

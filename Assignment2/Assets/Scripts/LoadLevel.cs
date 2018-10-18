@@ -2,7 +2,7 @@
 
 public class LoadLevel : MonoBehaviour {
 
-    [SerializeField] private readonly int level;
+    [SerializeField] private int level;
 
     private void OnTriggerEnter(Collider other)
     {

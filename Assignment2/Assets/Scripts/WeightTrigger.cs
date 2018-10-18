@@ -4,16 +4,16 @@ using System.Collections;
 public class WeightTrigger : PlacementDetect {
 
     [SerializeField] private EventRequirements target;
-    public bool isOn = false;
 
     // Used for objects where you need to put something on top of it to trigger an event
     protected override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
         GetComponent<AudioSource>().Play();
-        if(!isOn && other.tag == "PickUp")
+
+        if(!isTriggered && other.tag == "PickUp")
         {
-            isOn = true;
+            isTriggered = true;
             StartCoroutine(ObjControl(other.gameObject));
             target.SendRequirement(true);
         }
@@ -23,9 +23,10 @@ public class WeightTrigger : PlacementDetect {
     protected override void OnTriggerExit(Collider other)
     {
         base.OnTriggerExit(other);
-        if (isOn && other.tag == "PickUp")
+
+        if (isTriggered && other.tag == "PickUp")
         {
-            isOn = false;
+            isTriggered = false;
             target.SendRequirement(false);
         }
     }

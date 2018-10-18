@@ -19,6 +19,6 @@ public class SlipperyEffect : ColourEffect {
     public override void RevertEffect()
     {
         GetComponent<Collider>().material = null;
-        base.RevertEffect();
+        Destroy(this);
     }
 }
