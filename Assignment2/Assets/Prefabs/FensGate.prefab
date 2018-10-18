@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23709862169939378}
   - component: {fileID: 65405416804637794}
   m_Layer: 0
-  m_Name: Cube_001
+  m_Name: gate2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 23518510847530634}
   - component: {fileID: 65995904583006726}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: gate1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1471593164112844}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 1.4695778, y: 1.5905604, z: -23.54185}
+  m_LocalPosition: {x: 15.28945, y: 1.3, z: -30.139095}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4610885720495032}
@@ -180,14 +180,14 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1394166096465180}
-  m_Mesh: {fileID: 4300002, guid: 5f801120b5ce08c49b42ea2d540d08b6, type: 3}
+  m_Mesh: {fileID: 4300006, guid: 5f801120b5ce08c49b42ea2d540d08b6, type: 3}
 --- !u!33 &33786824293231732
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1241479463584710}
-  m_Mesh: {fileID: 4300000, guid: 5f801120b5ce08c49b42ea2d540d08b6, type: 3}
+  m_Mesh: {fileID: 4300004, guid: 5f801120b5ce08c49b42ea2d540d08b6, type: 3}
 --- !u!65 &65405416804637794
 BoxCollider:
   m_ObjectHideFlags: 1

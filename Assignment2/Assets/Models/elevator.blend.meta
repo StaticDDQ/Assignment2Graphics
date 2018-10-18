@@ -6,16 +6,26 @@ ModelImporter:
     100000: base
     100002: //RootNode
     100004: indicator
+    100006: elevatorBase
+    100008: elevatorIndicator
     400000: base
     400002: //RootNode
     400004: indicator
+    400006: elevatorBase
+    400008: elevatorIndicator
     2100000: unnamed
     2300000: base
     2300002: indicator
+    2300004: elevatorBase
+    2300006: elevatorIndicator
     3300000: base
     3300002: indicator
+    3300004: elevatorBase
+    3300006: elevatorIndicator
     4300000: indicator
     4300002: base
+    4300004: elevatorIndicator
+    4300006: elevatorBase
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}

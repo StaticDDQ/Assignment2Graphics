@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33767654633427454}
   - component: {fileID: 23954342613341998}
   m_Layer: 0
-  m_Name: indicator
+  m_Name: triggerIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 23525519671588856}
   - component: {fileID: 64124313270910064}
   m_Layer: 0
-  m_Name: base
+  m_Name: triggerBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1951034343579928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.881674, y: -8.159361e-17, z: 4.9500456}
+  m_LocalPosition: {x: 14.680099, y: 3.3406126e-17, z: -27.680597}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4758082035229400}
@@ -180,14 +180,14 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1917719357119270}
-  m_Mesh: {fileID: 4300002, guid: b489656a02224c14abc887765d2a580e, type: 3}
+  m_Mesh: {fileID: 4300012, guid: b489656a02224c14abc887765d2a580e, type: 3}
 --- !u!33 &33767654633427454
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1472099859467428}
-  m_Mesh: {fileID: 4300004, guid: b489656a02224c14abc887765d2a580e, type: 3}
+  m_Mesh: {fileID: 4300010, guid: b489656a02224c14abc887765d2a580e, type: 3}
 --- !u!64 &64124313270910064
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -227,4 +227,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indicator: {fileID: 23954342613341998}
   target: {fileID: 0}
-  isOn: 0

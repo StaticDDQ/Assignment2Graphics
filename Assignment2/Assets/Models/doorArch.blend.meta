@@ -10,6 +10,8 @@ ModelImporter:
     100008: base
     100010: door
     100012: indicator
+    100014: archBase
+    100016: archIndicator
     400000: Cube
     400002: Cube_001
     400004: //RootNode
@@ -17,6 +19,8 @@ ModelImporter:
     400008: base
     400010: door
     400012: indicator
+    400014: archBase
+    400016: archIndicator
     2100000: Material
     2300000: Cube
     2300002: Cube_001
@@ -24,18 +28,24 @@ ModelImporter:
     2300006: base
     2300008: door
     2300010: indicator
+    2300012: archBase
+    2300014: archIndicator
     3300000: Cube
     3300002: Cube_001
     3300004: Cube_002
     3300006: base
     3300008: door
     3300010: indicator
+    3300012: archBase
+    3300014: archIndicator
     4300000: Cube_001
     4300002: Cube
     4300004: Cube_002
     4300006: door
     4300008: indicator
     4300010: base
+    4300012: archIndicator
+    4300014: archBase
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}

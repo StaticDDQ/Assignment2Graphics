@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33007027307242346}
   - component: {fileID: 23686078904721626}
   m_Layer: 0
-  m_Name: indicator
+  m_Name: archIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 23483262412127660}
   - component: {fileID: 64833400418135396}
   m_Layer: 0
-  m_Name: base
+  m_Name: archBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1446875283905582}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 5.5}
+  m_LocalPosition: {x: 16.031202, y: 8.5556935e-16, z: -28.668507}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4532409453088272}
@@ -185,7 +185,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: c11d82105be5f2e4786974d1a75563f8, type: 3}
+  - {fileID: 2100000, guid: 589ea104499c4dd4b81891fa3ed4da7b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -246,14 +246,14 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1116885114921248}
-  m_Mesh: {fileID: 4300008, guid: c11d82105be5f2e4786974d1a75563f8, type: 3}
+  m_Mesh: {fileID: 4300012, guid: c11d82105be5f2e4786974d1a75563f8, type: 3}
 --- !u!33 &33504784183690618
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1483847095835628}
-  m_Mesh: {fileID: 4300010, guid: c11d82105be5f2e4786974d1a75563f8, type: 3}
+  m_Mesh: {fileID: 4300014, guid: c11d82105be5f2e4786974d1a75563f8, type: 3}
 --- !u!33 &33951665721733896
 MeshFilter:
   m_ObjectHideFlags: 1

@@ -9,28 +9,38 @@ ModelImporter:
     100006: base_001
     100008: centre
     100010: indicator
+    100012: triggerBase
+    100014: triggerIndicator
     400000: base
     400002: indicate
     400004: //RootNode
     400006: base_001
     400008: centre
     400010: indicator
+    400012: triggerBase
+    400014: triggerIndicator
     2100000: Material
     2300000: base
     2300002: indicate
     2300004: base_001
     2300006: centre
     2300008: indicator
+    2300010: triggerBase
+    2300012: triggerIndicator
     3300000: base
     3300002: indicate
     3300004: base_001
     3300006: centre
     3300008: indicator
+    3300010: triggerBase
+    3300012: triggerIndicator
     4300000: indicate
     4300002: base
     4300004: base_001
     4300006: centre
     4300008: indicator
+    4300010: triggerIndicator
+    4300012: triggerBase
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}

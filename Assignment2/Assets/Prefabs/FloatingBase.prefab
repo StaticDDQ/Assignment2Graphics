@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 23497847911502400}
   - component: {fileID: 65456254398772060}
   m_Layer: 0
-  m_Name: FloatingBase
+  m_Name: elevatorBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 33194151969795674}
   - component: {fileID: 23292622112759422}
   m_Layer: 0
-  m_Name: indicator
+  m_Name: elevatorIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1560941645936368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8131738, y: 0.5750001, z: -23.526308}
+  m_LocalPosition: {x: 14.691934, y: 2.794525, z: -32.05}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4985014203325910}
@@ -211,14 +211,14 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1830194710947934}
-  m_Mesh: {fileID: 4300000, guid: 3780954fc7bc57240ab174e7fb1f3f5e, type: 3}
+  m_Mesh: {fileID: 4300004, guid: 3780954fc7bc57240ab174e7fb1f3f5e, type: 3}
 --- !u!33 &33416491230249120
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1769587899031204}
-  m_Mesh: {fileID: 4300002, guid: 3780954fc7bc57240ab174e7fb1f3f5e, type: 3}
+  m_Mesh: {fileID: 4300006, guid: 3780954fc7bc57240ab174e7fb1f3f5e, type: 3}
 --- !u!65 &65456254398772060
 BoxCollider:
   m_ObjectHideFlags: 1

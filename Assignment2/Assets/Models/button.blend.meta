@@ -7,20 +7,35 @@ ModelImporter:
     100002: Cube
     100004: Cube_001
     100006: Cube_002
+    100008: button
+    100010: buttonBase
+    100012: buttonIndicator
     400000: //RootNode
     400002: Cube
     400004: Cube_001
     400006: Cube_002
+    400008: button
+    400010: buttonBase
+    400012: buttonIndicator
     2100000: Material
     2300000: Cube
     2300002: Cube_001
     2300004: Cube_002
+    2300006: button
+    2300008: buttonBase
+    2300010: buttonIndicator
     3300000: Cube
     3300002: Cube_001
     3300004: Cube_002
+    3300006: button
+    3300008: buttonBase
+    3300010: buttonIndicator
     4300000: Cube_002
     4300002: Cube_001
     4300004: Cube
+    4300006: buttonIndicator
+    4300008: button
+    4300010: buttonBase
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
