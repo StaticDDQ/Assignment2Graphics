@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour {
     
     public float moveSpeed = 3f;
     public float jumpHeight = 5f;
+    public float gravity = 10f;
 
     private Vector3 moveDir = Vector3.zero;
     private float distToGround;
@@ -30,13 +31,12 @@ public class PlayerMovement : MonoBehaviour {
         {
             rigidbody.AddForce(transform.up * jumpHeight, ForceMode.Impulse);
         }
-
-       
     }
 
     private void FixedUpdate()
     {
         rigidbody.MovePosition(transform.position + Vector3.Normalize(moveDir) * Time.fixedDeltaTime * moveSpeed);
+        rigidbody.AddForce(-transform.up * gravity, ForceMode.Acceleration);
     }
 
     private bool isGrounded()
