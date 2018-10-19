@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 
-public class DissolveObject : EventRequirements {
+public class DissolveObject : Event {
     
     private Material mat;
     [SerializeField] private float max, currVal;
     [SerializeField] private float speed = 1;
+    [SerializeField] private bool dissolving = true;
 
     private float audioSpeed = 1;
     private float val;
     private bool isOn = false;
-    private bool dissolving = true;
 
     private void Awake()
     {
@@ -45,22 +45,19 @@ public class DissolveObject : EventRequirements {
 	}
 
     // Call a dissolving effect on the object
-    public override void SendRequirement(bool dissolveOn)
+    public override bool TriggerEvent()
     {
         if (!isOn)
         {
             isOn = true;
-            
-            if(dissolveOn != dissolving)
-            {
-                float temp = currVal;
-                currVal = max;
-                max = temp;
+            dissolving = !dissolving;
 
-                val = currVal;
-            }
+            float temp = currVal;
+            currVal = max;
+            max = temp;
 
-            dissolving = dissolveOn;
+            val = currVal;
+
             if (dissolving)
             {
                 GetComponent<Collider>().enabled = true;
@@ -79,7 +76,9 @@ public class DissolveObject : EventRequirements {
 
             audioSpeed = -audioSpeed;
             GetComponent<AudioSource>().Play();
+            return true;
         }
+        return false;
     }
 
     public bool GetIsOn()

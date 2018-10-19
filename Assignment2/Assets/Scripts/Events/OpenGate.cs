@@ -36,7 +36,7 @@ public class OpenGate : Event {
 
     private IEnumerator GateOn()
     {
-        dissolvedWall.GetComponent<DissolveObject>().SendRequirement(false);
+        dissolvedWall.GetComponent<DissolveObject>().TriggerEvent();
 
         yield return new WaitForSeconds(1);
 
@@ -53,7 +53,7 @@ public class OpenGate : Event {
 
         yield return new WaitForSeconds(1);
 
-        dissolvedWall.GetComponent<DissolveObject>().SendRequirement(true);
+        dissolvedWall.GetComponent<DissolveObject>().TriggerEvent();
 
         finishAnim = true;
     }
