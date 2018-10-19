@@ -42,6 +42,7 @@ public static class ColourAssociate {
         
     }
 
+    // check if the added color is valid
     public static bool ValidColor(Color newColor)
     {
         return (newColor == Color.red || newColor == Color.green || newColor == Color.blue ||

@@ -12,6 +12,7 @@ public class ColourDecider : MonoBehaviour {
         if(reverting && GetComponent<ColourEffect>() == null)
         {
             reverting = false;
+            // will not add effect if currColor is white
             if (currColor != Color.white)
             {
                 ColourAssociate.SelectColor(gameObject, currColor);
@@ -22,7 +23,7 @@ public class ColourDecider : MonoBehaviour {
     // Setting the color to the object, apply effect based on color
     public bool SetEffect(Color newColor)
     {
-        // If color is being reverted
+        // If color is being reverted, dont assign effect yet
         if (reverting)
             return false;
 
@@ -37,10 +38,12 @@ public class ColourDecider : MonoBehaviour {
                 reverting = true;
             }
         }
+        // if current color is white, assign a new color
         else if (currColor == Color.white)
         {
             currColor = newColor;
         }
+        // mix the color together
         else if (currColor != newColor)
         {
             currColor = (currColor + newColor);

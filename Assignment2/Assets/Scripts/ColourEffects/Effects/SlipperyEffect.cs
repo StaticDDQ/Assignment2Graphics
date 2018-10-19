@@ -2,6 +2,8 @@
 
 public class SlipperyEffect : ColourEffect {
 
+    private float force = 5f;
+
     public override void ApplyEffect()
     {
         // Simply apply a slippery physics material to an object
@@ -14,6 +16,16 @@ public class SlipperyEffect : ColourEffect {
         };
 
         GetComponent<Collider>().material = slippery;
+    }
+
+    // add a force whenever the player touches the object
+    // to show the slippery effect easier
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * force, ForceMode.Impulse);
+        }
     }
 
     public override void RevertEffect()

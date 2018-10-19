@@ -8,10 +8,22 @@ public class PaintballSplatter : MonoBehaviour
     public GameObject onePaintSplatterPrefab;
     private List<ParticleCollisionEvent> paintSplatterCollisions;
 
+    private float elapsedTime = 0;
+    [SerializeField] private float lifetime = 3f;
+
     // Use this for initialization
     void Start()
     {
         currentPS = GetComponent<ParticleSystem>();
+    }
+
+    private void Update()
+    {
+        elapsedTime += Time.deltaTime;
+        if(elapsedTime > lifetime)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void OnParticleCollision(GameObject other)
