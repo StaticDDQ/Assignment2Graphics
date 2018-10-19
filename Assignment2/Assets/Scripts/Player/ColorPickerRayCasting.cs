@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class ColorPickerRayCasting : MonoBehaviour {
 
     public Color colorPreview;
-    public Image crosshair;
+    public Renderer source;
 
     private RaycastHit hit;
     private bool hasColor = false;
@@ -25,6 +25,7 @@ public class ColorPickerRayCasting : MonoBehaviour {
             }
             hasColor = true;
             colorPreview = c;
+            source.material.SetColor("_EmissionColor", c);
         }
         /*else if(hasColor && Input.GetMouseButtonDown(0) && Physics.Raycast(this.transform.position, this.transform.forward, out hit, distanceToSee) && 
             (hit.collider.tag == "PickUp" || hit.collider.tag == "Colourable"))
