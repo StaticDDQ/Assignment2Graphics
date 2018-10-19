@@ -2,9 +2,7 @@
 {
 	Properties
 	{
-		_PointLightColor ("Point Light Color", Color) = (0, 0, 0)
-		_PointLightPosition ("Point Light Position", Vector) = (0.0, 0.0, 0.0)
-		_NoiseTex ("Texture", 2D) = "white" {}
+		_NoiseTex ("Noise Texture", 2D) = "white" {}
 		_WaveOscillation ("Oscillation", Range(0.0, 100.0)) = 25.0
 		_WaveAmplitude ("Amplitude", Range(0.01, 0.1)) = 0.05
 		_Color ("Color", Color) = (1,1,1,1)
@@ -61,6 +59,7 @@
 				o.color = _Color;
 				o.uv = v.uv;
 
+				// Apply perlin noise texture displacement
 				float noise = tex2Dlod(_NoiseTex, float4(v.uv.xy, 0, 0));
 				float4 displacement = mul(normalize(v.normal), sin((noise + _Time.y) * _WaveOscillation) * _WaveAmplitude);
 				displacement.w = 0;
@@ -68,6 +67,8 @@
 
 				// Transform vertex in world coordinates to camera coordinates
 				o.vertex = UnityObjectToClipPos(v.vertex);
+
+
 
 				o.worldVertex = mul(unity_ObjectToWorld, v.vertex);
 				o.worldNormal = normalize(mul(transpose((float3x3)unity_WorldToObject), v.normal.xyz));

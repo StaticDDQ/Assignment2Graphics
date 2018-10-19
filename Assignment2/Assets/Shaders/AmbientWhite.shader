@@ -47,7 +47,7 @@
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				float Ka = 2;
+				float Ka = 4.5;
 				float3 amb = i.color.rgb * UNITY_LIGHTMODEL_AMBIENT * Ka;
 
 				float4 col = float4(0.0f, 0.0f, 0.0f, 0.0f);
