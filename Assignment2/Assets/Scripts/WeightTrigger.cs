@@ -36,8 +36,10 @@ public class WeightTrigger : PlacementDetect {
     {
         obj.GetComponent<PickUp>().SetCarry(false);
         obj.tag = "Untagged";
+        obj.GetComponent<Rigidbody>().isKinematic = true;
         yield return new WaitForSeconds(waitTime);
         obj.tag = "PickUp";
+        obj.GetComponent<Rigidbody>().isKinematic = false;
 
     }
 }

@@ -213,8 +213,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.2, z: 0.5}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 0.3, y: 0.05, z: 0.3}
+  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!82 &82403809681775560
 AudioSource:
   m_ObjectHideFlags: 1
@@ -323,3 +323,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indicator: {fileID: 23954342613341998}
   target: {fileID: 0}
+  waitTime: 1
