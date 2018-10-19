@@ -6,14 +6,15 @@ public class PlayerMovement : MonoBehaviour {
 
     private new Rigidbody rigidbody;
     private Transform cam;
-    
-    public float moveSpeed = 5f;
-    public float jumpHeight = 5f;
-
-    public Vector3 moveDir = Vector3.zero;
     private float distToGround;
 
-    void Start()
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float jumpHeight = 5f;
+
+    [HideInInspector]
+    public Vector3 moveDir = Vector3.zero;
+
+    private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         cam = Camera.main.transform;
@@ -22,10 +23,9 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Update()
     {
-
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            rigidbody.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
+            rigidbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
         }
     }
 
