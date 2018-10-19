@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour {
         distToGround = GetComponent<Collider>().bounds.extents.y;
     }
 
+    // jump is added in update to prevent rigidbody bug where jump force is much higher- if player is on top of a moving object
     private void Update()
     {
         if (Input.GetButtonDown("Jump") && IsGrounded())
@@ -31,10 +32,12 @@ public class PlayerMovement : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        // move based on where the camera is facing as well
         moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         moveDir = cam.TransformDirection(moveDir);
         moveDir.y = 0f;
 
+        // if player wants to sprint
         if (Input.GetKey(KeyCode.LeftShift) && IsGrounded())
         {
             moveSpeed = 8f;
@@ -43,9 +46,11 @@ public class PlayerMovement : MonoBehaviour {
         {
             moveSpeed = 5f;
         }
+
         rigidbody.MovePosition(rigidbody.position + moveDir * moveSpeed * Time.fixedDeltaTime);
     }
 
+    // cast a line downwards and check if an object is directly under the player
     private bool IsGrounded()
     {
         return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);

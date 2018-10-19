@@ -18,6 +18,8 @@ public class PickUp : MonoBehaviour {
         body = GetComponent<Rigidbody>();
     }
 
+    // removing rotation and parent the object to the camera when carrying to allow smooth movement
+    // otherwise if the player drop the object will moving, it will apply a push force based on the movement speed
     public void SetCarry(bool isCarrying)
     {
         if (!playerTouched)
@@ -39,6 +41,7 @@ public class PickUp : MonoBehaviour {
         }
     }
 
+    // play audio if the object lands on the floor, otherwise prevent the player to pick the object up if player is directly on top of this object
     private void OnCollisionStay(Collision other)
     {
         if (!isGrounded && other.gameObject.tag == "Floor")
@@ -54,6 +57,7 @@ public class PickUp : MonoBehaviour {
         }
     }
 
+    // player can now pick up the object, or the object is currently on the air
     private void OnCollisionExit(Collision other)
     {
         if (other.gameObject.tag == "Floor")
@@ -66,6 +70,7 @@ public class PickUp : MonoBehaviour {
         }
     }
 
+    // drop the object if it touches the floor or wall
     private void OnTriggerEnter(Collider other)
     {
         if (isCarried && (other.tag == "Floor" || other.tag == "Wall"))
@@ -75,6 +80,7 @@ public class PickUp : MonoBehaviour {
     }
 
     // Update is called once per frame
+    // have object always be in front of the camera when being carried
     private void Update () {
 		if (isCarried) {
             transform.position = Vector3.Lerp(transform.position, mainCam.position + mainCam.forward * dist, Time.deltaTime * smooth);   

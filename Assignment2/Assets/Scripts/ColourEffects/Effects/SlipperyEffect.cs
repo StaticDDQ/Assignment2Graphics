@@ -18,6 +18,8 @@ public class SlipperyEffect : ColourEffect {
         GetComponent<Collider>().material = slippery;
     }
 
+    // add a force whenever the player touches the object
+    // to show the slippery effect easier
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player")

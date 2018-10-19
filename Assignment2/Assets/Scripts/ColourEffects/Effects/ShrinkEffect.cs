@@ -2,10 +2,12 @@
 using UnityEngine;
 public class ShrinkEffect : ColourEffect {
 
+    // there is a minimum size so object will not shrink to oblivion
     private readonly Vector3 minSize = new Vector3(0.5f,0.5f,0.5f);
     private readonly Vector3 incrementScale = new Vector3(0.5f, 0.5f, 0.5f);
     private readonly float minMass = 2f;
     
+    // the original scale, and mass of the object before applying the effect
     private Vector3 baseScale;
     private Vector3 newScale;
     private float baseMass;
@@ -22,9 +24,11 @@ public class ShrinkEffect : ColourEffect {
             baseMass = GetComponent<Rigidbody>().mass;
         }
 
+        // increasing scale will increase the mass as well
         newScale = Vector3.Max(minSize, newScale - incrementScale);
         GetComponent<Rigidbody>().mass = Mathf.Max(minMass, GetComponent<Rigidbody>().mass - 2f);
 
+        // if the object is small enough, it can be picked up
         if (GetComponent<Rigidbody>().mass <= 4f)
         {
             gameObject.tag = "PickUp";
@@ -37,6 +41,7 @@ public class ShrinkEffect : ColourEffect {
         StartCoroutine(Reverting());
     }
 
+    // will need to revert the scale and mass back to original before removing this script
     private IEnumerator Reverting()
     {
         float elapsedTime = 0;
@@ -50,6 +55,7 @@ public class ShrinkEffect : ColourEffect {
         transform.localScale = baseScale;
         GetComponent<Rigidbody>().mass = baseMass;
 
+        // if the object was initially big, make it unabled to be picked up
         if (GetComponent<Rigidbody>().mass > 4f)
         {
             gameObject.tag = "Colourable";
@@ -58,6 +64,7 @@ public class ShrinkEffect : ColourEffect {
         Destroy(this);
     }
 
+    // smooth transition effect of the scale getting smaller
     private void Update()
     {
         if (isEnlarge)

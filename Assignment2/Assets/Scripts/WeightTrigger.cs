@@ -20,7 +20,7 @@ public class WeightTrigger : PlacementDetect {
         }
     }
 
-    // Used for objects where you need to put something on top of it to trigger an event
+    // trigger an event if pickup object is out of the trigger
     protected override void OnTriggerExit(Collider other)
     {
         base.OnTriggerExit(other);
@@ -32,6 +32,8 @@ public class WeightTrigger : PlacementDetect {
         }
     }
 
+    // immediately stops the object if it lands on the trigger
+    // wait for event to finish before being able to grab the object again
     private IEnumerator ObjControl(GameObject obj)
     {
         obj.GetComponent<PickUp>().SetCarry(false);

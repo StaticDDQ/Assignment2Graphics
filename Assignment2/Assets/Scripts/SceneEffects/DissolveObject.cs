@@ -18,7 +18,7 @@ public class DissolveObject : Event {
     }
 
     // Update is called once per frame, set the values for the object to dissolve. 
-    // Completely dissolved object will have it's collider turned off
+    // Completely dissolved object will have it's collider and mesh renderer turned off
     private void Update () {
         if (isOn)
         {
@@ -47,11 +47,13 @@ public class DissolveObject : Event {
     // Call a dissolving effect on the object
     public override bool TriggerEvent()
     {
+        // will not start dissolving unless it is not currently dissolving
         if (!isOn)
         {
             isOn = true;
             dissolving = !dissolving;
 
+            // values to adjust the dissolve shader
             float temp = currVal;
             currVal = max;
             max = temp;
@@ -64,6 +66,7 @@ public class DissolveObject : Event {
                 GetComponent<MeshRenderer>().enabled = true;
             }
 
+            // play dissolving sound, reverse the sound depending if its dissolving or not
             GetComponent<AudioSource>().pitch = audioSpeed;
             if(audioSpeed < 0)
             {
