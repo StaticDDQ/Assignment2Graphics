@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 403621366}
   m_Layer: 0
   m_Name: WALL
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1692,6 +1692,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &574284564 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1101930583226144, guid: d8d2ddab5c6f53846b08a3d5ff5c5604,
+    type: 2}
+  m_PrefabInternal: {fileID: 1280918587}
+--- !u!54 &574284566
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 574284564}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &598817495
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,7 +2046,7 @@ GameObject:
   - component: {fileID: 669331641}
   m_Layer: 0
   m_Name: WALL
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3033,7 +3053,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114428470570081100, guid: d8d2ddab5c6f53846b08a3d5ff5c5604,
+        type: 2}
+      propertyPath: gravity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114428470570081100, guid: d8d2ddab5c6f53846b08a3d5ff5c5604,
+        type: 2}
+      propertyPath: jumpHeight
+      value: 1.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 54302820706938620, guid: d8d2ddab5c6f53846b08a3d5ff5c5604, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d8d2ddab5c6f53846b08a3d5ff5c5604, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1357721144
@@ -3564,7 +3595,7 @@ GameObject:
   - component: {fileID: 1657505878}
   m_Layer: 0
   m_Name: WALL
-  m_TagString: Floor
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3690,12 +3721,16 @@ Prefab:
     - target: {fileID: 65692753261763666, guid: d77026c3dad7f304394a2cbf6088574c,
         type: 2}
       propertyPath: m_Size.x
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 65692753261763666, guid: d77026c3dad7f304394a2cbf6088574c,
         type: 2}
       propertyPath: m_Size.y
-      value: 3
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4108503324588268, guid: d77026c3dad7f304394a2cbf6088574c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d77026c3dad7f304394a2cbf6088574c, type: 2}
