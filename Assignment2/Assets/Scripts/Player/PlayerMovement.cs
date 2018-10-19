@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour {
     
     public float moveSpeed = 3f;
     public float jumpHeight = 5f;
-    public float gravity = 10f;
 
     private Vector3 moveDir = Vector3.zero;
     private float distToGround;
@@ -23,20 +22,20 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Update()
     {
-        moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+
+        moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         moveDir = cam.TransformDirection(moveDir);
         moveDir.y = 0f;
 
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            rigidbody.AddForce(transform.up * jumpHeight, ForceMode.Impulse);
+            rigidbody.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
         }
     }
 
     private void FixedUpdate()
     {
-        rigidbody.MovePosition(transform.position + Vector3.Normalize(moveDir) * Time.fixedDeltaTime * moveSpeed);
-        rigidbody.AddForce(-transform.up * gravity, ForceMode.Acceleration);
+        rigidbody.MovePosition(rigidbody.position + moveDir * moveSpeed * Time.fixedDeltaTime);
     }
 
     private bool IsGrounded()
