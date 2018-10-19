@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     public float moveSpeed = 5f;
     public float jumpHeight = 5f;
 
-    private Vector3 moveDir = Vector3.zero;
+    public Vector3 moveDir = Vector3.zero;
     private float distToGround;
 
     void Start()

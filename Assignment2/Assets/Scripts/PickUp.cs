@@ -4,6 +4,7 @@ public class PickUp : MonoBehaviour {
 
 	[SerializeField] private float dist;
     [SerializeField] private float smooth;
+    [SerializeField] private float forcePush = 10f;
 
     private bool playerTouched = false;
     private bool isGrounded = true;
@@ -32,6 +33,8 @@ public class PickUp : MonoBehaviour {
             else
             {
                 transform.SetParent(null);
+                float force = mainCam.parent.GetComponent<PlayerMovement>().moveDir.magnitude;
+                GetComponent<Rigidbody>().AddForce(mainCam.forward * force * forcePush,ForceMode.Impulse); 
             }
         }
     }
