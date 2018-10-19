@@ -43,7 +43,9 @@ public class PickUp : MonoBehaviour {
             GetComponent<AudioSource>().Play();
             isGrounded = true;
         }
-        if(other.gameObject.tag == "Player")
+
+        RaycastHit hit;
+        if (Physics.Raycast(this.transform.position, Vector3.up, out hit, 2f) && hit.collider.tag == "Player")
         {
             playerTouched = true;
         }
@@ -54,7 +56,8 @@ public class PickUp : MonoBehaviour {
         if (other.gameObject.tag == "Floor")
         {
             isGrounded = false;
-        } else if(other.gameObject.tag == "Player")
+        }
+        if(other.gameObject.tag == "Player")
         {
             playerTouched = false;
         }
@@ -72,6 +75,6 @@ public class PickUp : MonoBehaviour {
     private void Update () {
 		if (isCarried) {
             transform.position = Vector3.Lerp(transform.position, mainCam.position + mainCam.forward * dist, Time.deltaTime * smooth);   
-        }	
-	}
+        }
+    }
 }

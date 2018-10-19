@@ -73,6 +73,7 @@ public class ColourDecider : MonoBehaviour {
                 ColourAssociate.SelectColor(gameObject, currColor);
             }
         }
+        
         #endregion
 
         return true;

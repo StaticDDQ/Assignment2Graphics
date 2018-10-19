@@ -12,28 +12,34 @@ public static class ColourAssociate {
         if (newColor == Color.red)
         { 
             obj.AddComponent<EnlargeEffect>();
+            obj.GetComponent<ColourEffect>().ApplyEffect();
         }
         else if (newColor == Color.green)
         {
             obj.AddComponent<StaticEffect>();
+            obj.GetComponent<ColourEffect>().ApplyEffect();
         }
         else if (newColor == Color.blue)
         {
             obj.AddComponent<ShrinkEffect>();
+            obj.GetComponent<ColourEffect>().ApplyEffect();
         }
         else if (newColor == YELLOW)
         {
             obj.AddComponent<MagnetEffect>();
+            obj.GetComponent<ColourEffect>().ApplyEffect();
         }
         else if (newColor == Color.cyan)
         {
             obj.AddComponent<SlipperyEffect>();
+            obj.GetComponent<ColourEffect>().ApplyEffect();
         }
         else if (newColor == Color.magenta)
         {
             obj.AddComponent<BounceEffect>();
+            obj.GetComponent<ColourEffect>().ApplyEffect();
         }
-        obj.GetComponent<ColourEffect>().ApplyEffect();
+        
     }
 
     public static bool ValidColor(Color newColor)
