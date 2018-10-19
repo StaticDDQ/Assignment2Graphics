@@ -4,6 +4,7 @@ public class PaintballCollision : MonoBehaviour
 {
 
     public GameObject paintScatterPrefab;
+    public GameObject onePaintSplatterPrefab;
     private ParticleSystem currentPS;
 
     // When paintball has made contact with another collider
@@ -29,6 +30,12 @@ public class PaintballCollision : MonoBehaviour
         if (collided.tag == "PickUp" || collided.tag == "Colourable")
         {
             collided.GetComponent<ColourDecider>().SetEffect(c);
+
+            Vector3 paintSplatterPos = collision.contacts[0].point;
+            var rotation = Quaternion.LookRotation(collision.contacts[0].normal);
+            //Collider collider = (Collider)paintSplatterCollisions[i].colliderComponent;
+            var splatter = Instantiate(onePaintSplatterPrefab, paintSplatterPos, rotation);
+            splatter.GetComponent<Renderer>().material.SetColor("_Color", Camera.main.GetComponent<ColorPickerRayCasting>().colorPreview);
         }
 
         Destroy(gameObject);
