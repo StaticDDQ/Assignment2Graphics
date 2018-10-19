@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PaintballSplatter : MonoBehaviour
 {
@@ -15,33 +13,28 @@ public class PaintballSplatter : MonoBehaviour
         currentPS = GetComponent<ParticleSystem>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnParticleCollision(GameObject other)
     {
-        int collCount = currentPS.GetSafeCollisionEventSize();
-
-        paintSplatterCollisions = new ParticleCollisionEvent[collCount];
-
-        int eventCount = currentPS.GetCollisionEvents(other, paintSplatterCollisions);
-
-        onePaintSplatterPrefab.GetComponent<Renderer>().sharedMaterial.SetColor("_Color", Camera.main.GetComponent<ColorPickerRayCasting>().colorPreview);
-
-        for (int i = 0; i < eventCount; i++)
+        if (other.tag != "Player")
         {
-            Vector3 paintSplatterPos = paintSplatterCollisions[i].intersection;
-            var rotation = Quaternion.LookRotation(paintSplatterCollisions[i].normal);
-            Collider collider = (Collider)paintSplatterCollisions[i].colliderComponent;
-            if (other.tag == "PickUp" || other.tag == "Colourable") { }
-            else
+            int collCount = currentPS.GetSafeCollisionEventSize();
+
+            paintSplatterCollisions = new ParticleCollisionEvent[collCount];
+
+            int eventCount = currentPS.GetCollisionEvents(other, paintSplatterCollisions);
+            print(eventCount);
+            if (!(other.tag == "PickUp" || other.tag == "Colourable"))
             {
-                Instantiate(onePaintSplatterPrefab, paintSplatterPos, rotation);
+                for (int i = 0; i < eventCount; i++)
+                {
+                    Vector3 paintSplatterPos = paintSplatterCollisions[i].intersection;
+                    var rotation = Quaternion.LookRotation(paintSplatterCollisions[i].normal);
+                    Collider collider = (Collider)paintSplatterCollisions[i].colliderComponent;
+                    var splatter = Instantiate(onePaintSplatterPrefab, paintSplatterPos, rotation);
+                    splatter.GetComponent<Renderer>().material.SetColor("_Color", Camera.main.GetComponent<ColorPickerRayCasting>().colorPreview);
+                }
             }
         }
-
+        Destroy(this.gameObject,1.0f);
     }
 }
