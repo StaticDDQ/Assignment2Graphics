@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class SpawnObject : MonoBehaviour {
+public class SpawnObject : Event {
 
     [SerializeField] private GameObject colourObject;
     [SerializeField] private int counter = 3;
@@ -12,13 +12,14 @@ public class SpawnObject : MonoBehaviour {
         displayText.text = counter.ToString();
     }
 
-    // Update is called once per frame
-    public void Spawn()
+    public override bool TriggerEvent()
     {
-        if (counter != 0)
+        if(counter != 0)
         {
             Instantiate(colourObject, transform.position, Quaternion.identity);
             displayText.text = (--counter).ToString();
+            return true;
         }
+        return false;
     }
 }
