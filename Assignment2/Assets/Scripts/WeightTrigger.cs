@@ -4,6 +4,7 @@ using System.Collections;
 public class WeightTrigger : PlacementDetect {
 
     [SerializeField] private Event target;
+    [SerializeField] private float waitTime = 1;
 
     // Used for objects where you need to put something on top of it to trigger an event
     protected override void OnTriggerEnter(Collider other)
@@ -35,7 +36,7 @@ public class WeightTrigger : PlacementDetect {
     {
         obj.GetComponent<PickUp>().SetCarry(false);
         obj.tag = "Untagged";
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(waitTime);
         obj.tag = "PickUp";
 
     }
