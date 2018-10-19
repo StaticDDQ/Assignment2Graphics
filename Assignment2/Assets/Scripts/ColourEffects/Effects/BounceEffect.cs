@@ -16,7 +16,7 @@ public class BounceEffect : ColourEffect
         // Add a bouncy physics material to the object
         PhysicMaterial bounce = new PhysicMaterial
         {
-            bounciness = 0.95f,
+            bounciness = 0.975f,
             bounceCombine = PhysicMaterialCombine.Maximum
         };
 

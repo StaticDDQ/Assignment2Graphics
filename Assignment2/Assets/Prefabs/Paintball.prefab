@@ -114,6 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintScatterPrefab: {fileID: 1619990370921704, guid: aa8864cf4e3b53b48a03cf727e567f67,
     type: 2}
+  onePaintSplatterPrefab: {fileID: 1619990370921704, guid: aa8864cf4e3b53b48a03cf727e567f67,
+    type: 2}
 --- !u!135 &135234174381318922
 SphereCollider:
   m_ObjectHideFlags: 1
