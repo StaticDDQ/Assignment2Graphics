@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour {
     private new Rigidbody rigidbody;
     private Transform cam;
     
-    public float moveSpeed = 3f;
+    public float moveSpeed = 5f;
     public float jumpHeight = 5f;
 
     private Vector3 moveDir = Vector3.zero;
@@ -23,10 +23,6 @@ public class PlayerMovement : MonoBehaviour {
     private void Update()
     {
 
-        moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        moveDir = cam.TransformDirection(moveDir);
-        moveDir.y = 0f;
-
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rigidbody.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
@@ -35,6 +31,18 @@ public class PlayerMovement : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        moveDir = cam.TransformDirection(moveDir);
+        moveDir.y = 0f;
+
+        if (Input.GetKey(KeyCode.LeftShift) && IsGrounded())
+        {
+            moveSpeed = 8f;
+        }
+        else
+        {
+            moveSpeed = 5f;
+        }
         rigidbody.MovePosition(rigidbody.position + moveDir * moveSpeed * Time.fixedDeltaTime);
     }
 
