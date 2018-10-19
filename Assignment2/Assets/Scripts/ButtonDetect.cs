@@ -10,8 +10,12 @@ public class ButtonDetect : TriggerDetection{
         if (target.TriggerEvent())
         {
             GetComponent<AudioSource>().Play();
-            
-            GetComponent<Animator>().Play("ButtonPressed");
+
+            if(GetComponent<Animator>() != null)
+            {
+                GetComponent<Animator>().Play("ButtonPressed");
+            }
+
             isTriggered = !isTriggered;
 
             StopAllCoroutines();
