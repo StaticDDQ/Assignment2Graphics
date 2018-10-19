@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WeightTrigger : PlacementDetect {
 
-    [SerializeField] private EventRequirements target;
+    [SerializeField] private Event target;
 
     // Used for objects where you need to put something on top of it to trigger an event
     protected override void OnTriggerEnter(Collider other)
@@ -15,7 +15,7 @@ public class WeightTrigger : PlacementDetect {
         {
             isTriggered = true;
             StartCoroutine(ObjControl(other.gameObject));
-            target.SendRequirement(true);
+            target.TriggerEvent();
         }
     }
 
@@ -27,7 +27,7 @@ public class WeightTrigger : PlacementDetect {
         if (isTriggered && other.tag == "PickUp")
         {
             isTriggered = false;
-            target.SendRequirement(false);
+            target.TriggerEvent();
         }
     }
 
