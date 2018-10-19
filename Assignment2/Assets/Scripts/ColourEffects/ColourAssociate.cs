@@ -39,6 +39,7 @@ public static class ColourAssociate {
     public static bool ValidColor(Color newColor)
     {
         return (newColor == Color.red || newColor == Color.green || newColor == Color.blue ||
-                newColor == YELLOW || newColor == Color.magenta || newColor == Color.cyan);
+                newColor == YELLOW || newColor == Color.magenta || newColor == Color.cyan ||
+                newColor == Color.white);
     }
 }
