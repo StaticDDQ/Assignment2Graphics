@@ -2,8 +2,8 @@
 
 public class PickUp : MonoBehaviour {
 
-	[SerializeField] private float dist;
-    [SerializeField] private float smooth;
+	[SerializeField] private float dist = 2f;
+    [SerializeField] private float smooth = 6f;
     [SerializeField] private float forcePush = 10f;
 
     private bool playerTouched = false;
