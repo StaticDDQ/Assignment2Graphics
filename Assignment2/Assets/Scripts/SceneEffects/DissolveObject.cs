@@ -35,8 +35,11 @@ public class DissolveObject : EventRequirements {
             else
             {
                 isOn = false;
-                if(!dissolving)
+                if (!dissolving)
+                {
                     GetComponent<Collider>().enabled = false;
+                    GetComponent<MeshRenderer>().enabled = false;
+                } 
             }
         }
 	}
@@ -61,6 +64,7 @@ public class DissolveObject : EventRequirements {
             if (dissolving)
             {
                 GetComponent<Collider>().enabled = true;
+                GetComponent<MeshRenderer>().enabled = true;
             }
 
             GetComponent<AudioSource>().pitch = audioSpeed;

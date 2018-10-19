@@ -62,8 +62,6 @@
 				o.uv = v.uv;
 
 				float noise = tex2Dlod(_NoiseTex, float4(v.uv.xy, 0, 0));
-				//float4 normalized = normalize(v.normal);
-				//float4 displacement = float4(normalized.x * sin(noise * 25 * _Time.y) / 10, normalized.y * sin(noise * 25 * _Time.y) / 10, normalized.z * sin(noise * 25 * _Time.y) / 10, 0.0f);
 				float4 displacement = mul(normalize(v.normal), sin((noise + _Time.y) * _WaveOscillation) * _WaveAmplitude);
 				displacement.w = 0;
 				v.vertex += displacement;
