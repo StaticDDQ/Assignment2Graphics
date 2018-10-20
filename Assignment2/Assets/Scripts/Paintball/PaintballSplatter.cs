@@ -12,6 +12,7 @@ public class PaintballSplatter : MonoBehaviour
     void Start()
     {
         currentPS = GetComponent<ParticleSystem>();
+        float particleSize = currentPS.startSize;
     }
 
     private void OnParticleCollision(GameObject other)
