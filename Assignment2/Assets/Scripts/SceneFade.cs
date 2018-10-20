@@ -15,11 +15,16 @@ public class SceneFade: Event {
     // There is only one instance of this and will appear in every scene
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
         if (instance == null)
         {
             instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // when the player wants to load a level
@@ -52,6 +57,11 @@ public class SceneFade: Event {
         GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, alpha);
         GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), fadeOutText);
 	}
+
+    private void PlayMusic()
+    {
+        GetComponent<AudioSource>().Play();
+    }
 
     // used if the player wants to reset the level
     public override bool TriggerEvent()
