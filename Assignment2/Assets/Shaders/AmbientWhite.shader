@@ -47,12 +47,12 @@
 				return o;
 			}
 			
+			// Ambient light (from Phong) on white
 			fixed4 frag (v2f i) : SV_Target
 			{
 				float3 amb = i.color.rgb * UNITY_LIGHTMODEL_AMBIENT * _Ka;
 
 				float4 col = float4(0.0f, 0.0f, 0.0f, 0.0f);
-				//col += tex2D(_MainTex, i.uv);
 				col.rgb += amb.rgb;
 				return col;
 			}

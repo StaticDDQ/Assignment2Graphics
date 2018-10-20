@@ -1,4 +1,6 @@
-﻿Shader "Custom/EdgeDetectionShader"
+﻿// Adapted from Harry Alisavakis' Edge Detection image effect
+
+Shader "Custom/EdgeDetectionShader"
 {
     Properties
     {
@@ -11,8 +13,8 @@
     {
         // No culling or depth
         Cull Off
-		//ZWrite Off
-		//ZTest Always
+		ZWrite Off
+		ZTest Always
  
         Pass
         {
@@ -50,6 +52,7 @@
             float _Threshold;
             fixed4 _EdgeColor;
  
+			// Gets normal and depth from camera, stores in float4
             float4 GetPixelValue(in float2 uv) {
                 half3 normal;
                 float depth;
@@ -57,10 +60,11 @@
                 return fixed4(normal, depth);
             }
  
+			// Checks surrounding pixels
+			// If surrounding pixels' normal and depth differ too much, render as black (edge)
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
-				//fixed4 col = _Color;
                 fixed4 orValue = GetPixelValue(i.uv);
                 float2 offsets[8] = {
                     float2(-1, -1),
@@ -79,8 +83,6 @@
                 sampledValue /= 8;
                  
                 return lerp(col, _EdgeColor, step(_Threshold, length(orValue - sampledValue)));
-				//return col;
-				//return orValue;
             }
             ENDCG
         }

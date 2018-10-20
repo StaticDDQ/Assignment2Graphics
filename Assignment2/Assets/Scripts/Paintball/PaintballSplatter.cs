@@ -19,6 +19,7 @@ public class PaintballSplatter : MonoBehaviour
 
     private void Update()
     {
+        // Lifetime of splatter
         elapsedTime += Time.deltaTime;
         if(elapsedTime > lifetime)
         {
@@ -28,14 +29,17 @@ public class PaintballSplatter : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
+        // Doesn't effect when colliding player
         if (other.tag != "Player")
         {
             paintSplatterCollisions = new List<ParticleCollisionEvent>();
 
             int eventCount = currentPS.GetCollisionEvents(other, paintSplatterCollisions);
 
+            // Effects colourable objects
             if (!(other.tag == "PickUp" || other.tag == "Colourable"))
             {
+                // Create splatter when each particle makes contact
                 for (int i = 0; i < eventCount; i++)
                 {
                     Vector3 paintSplatterPos = paintSplatterCollisions[i].intersection;

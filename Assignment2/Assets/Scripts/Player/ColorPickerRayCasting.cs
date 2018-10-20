@@ -13,6 +13,7 @@ public class ColorPickerRayCasting : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        // Right click to grab color
         if (Input.GetMouseButton(1) && Physics.Raycast(this.transform.position, this.transform.forward, out hit, distanceToSee) && hit.collider.tag == "Source")
         {
             var material = hit.collider.GetComponent<Renderer>().material;
@@ -27,10 +28,5 @@ public class ColorPickerRayCasting : MonoBehaviour {
             colorPreview = c;
             source.material.SetColor("_EmissionColor", c);
         }
-        /*else if(hasColor && Input.GetMouseButtonDown(0) && Physics.Raycast(this.transform.position, this.transform.forward, out hit, distanceToSee) && 
-            (hit.collider.tag == "PickUp" || hit.collider.tag == "Colourable"))
-        {
-            hit.collider.GetComponent<ColourDecider>().SetEffect(colorPreview);
-        }*/
 	}
 }

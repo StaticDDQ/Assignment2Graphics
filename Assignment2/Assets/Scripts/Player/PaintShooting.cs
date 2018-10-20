@@ -15,10 +15,7 @@ public class PaintShooting : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        //Debug.Log(paintballSpawn.forward);
-        //paintballSpawn.localPosition += new Vector3(0.0f, -0.5f, 0.5f);
-
+        // Left click to shoot
 		if (Input.GetMouseButtonDown(0) && Time.time > fireNow)
         {
             Color eyedrop = this.GetComponent<ColorPickerRayCasting>().colorPreview;

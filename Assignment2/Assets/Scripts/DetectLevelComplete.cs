@@ -9,16 +9,8 @@ public class DetectLevelComplete : PlacementDetect {
     {
         base.OnTriggerEnter(other);
 
-        Debug.Log("Player on elevator");
+        // Animate elevator while fading to black and loading next level
         GetComponent<Animator>().Play("ElevatorRise");
-
         SceneFade.instance.StartLevel(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    protected override void OnTriggerExit(Collider other)
-    {
-        base.OnTriggerExit(other);
-
-        Debug.Log("Player off elevator");
     }
 }

@@ -15,6 +15,7 @@ public class CubeGenerator : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        // Endless loop of falling cubes
 		if (cube.transform.position.y < -15)
         {
             Destroy(cube);
@@ -22,6 +23,7 @@ public class CubeGenerator : MonoBehaviour {
         }
 	}
 
+    // Instantiate cube; if large, changes physical components such as mass
     GameObject InstantiateCube(bool large) {
         GameObject cube = Instantiate(cubePrefab, this.transform.position, this.transform.rotation);
         if (large)

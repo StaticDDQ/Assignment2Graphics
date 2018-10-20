@@ -13,6 +13,7 @@ public class CrosshairColor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        // Set color based on raycast component
         Color eyedrop = Camera.main.GetComponent<ColorPickerRayCasting>().colorPreview;
         GetComponent<Image>().color = eyedrop;
 	}

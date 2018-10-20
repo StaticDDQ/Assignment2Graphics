@@ -31,9 +31,9 @@ public class PaintballCollision : MonoBehaviour
         {
             collided.GetComponent<ColourDecider>().SetEffect(c);
 
+            // Create splatter texture
             Vector3 paintSplatterPos = collision.contacts[0].point;
             var rotation = Quaternion.LookRotation(collision.contacts[0].normal);
-            //Collider collider = (Collider)paintSplatterCollisions[i].colliderComponent;
             var splatter = Instantiate(onePaintSplatterPrefab, paintSplatterPos, rotation);
             splatter.GetComponent<Renderer>().material.SetColor("_Color", Camera.main.GetComponent<ColorPickerRayCasting>().colorPreview);
         }

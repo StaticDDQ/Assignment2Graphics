@@ -47,8 +47,6 @@
 				float4 vertex : SV_POSITION;
 				float4 color : COLOR;
 				float2 uv : TEXCOORD0;
-				float4 worldVertex : TEXCOORD1;
-				float3 worldNormal : TEXCOORD2;
 			};
 
 			// Implementation of the vertex shader
@@ -68,19 +66,12 @@
 				// Transform vertex in world coordinates to camera coordinates
 				o.vertex = UnityObjectToClipPos(v.vertex);
 
-
-
-				o.worldVertex = mul(unity_ObjectToWorld, v.vertex);
-				o.worldNormal = normalize(mul(transpose((float3x3)unity_WorldToObject), v.normal.xyz));
-
 				return o;
 			}
 			
 			// Implementation of the fragment shader
 			fixed4 frag(vertOut v) : SV_Target
 			{
-				v.worldNormal = normalize(v.worldNormal);
-				
 				fixed4 col = _Color;
 				col.a = _Transparency;
 				return col;

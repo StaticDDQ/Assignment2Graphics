@@ -8,15 +8,12 @@ public class DepthNormals : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        // Camera has access to depth and normals of pixels on screen
         Camera.main.depthTextureMode = DepthTextureMode.DepthNormals;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination) {
+        // Allow material to access depth and normals
         Graphics.Blit(source, destination, mat);
     }
 }
