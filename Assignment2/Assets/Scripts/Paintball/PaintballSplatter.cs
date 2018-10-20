@@ -40,7 +40,7 @@ public class PaintballSplatter : MonoBehaviour
                 {
                     Vector3 paintSplatterPos = paintSplatterCollisions[i].intersection;
                     var rotation = Quaternion.LookRotation(paintSplatterCollisions[i].normal);
-                    //Collider collider = (Collider)paintSplatterCollisions[i].colliderComponent;
+
                     var splatter = Instantiate(onePaintSplatterPrefab, paintSplatterPos, rotation);
                     splatter.GetComponent<Renderer>().material.SetColor("_Color", Camera.main.GetComponent<ColorPickerRayCasting>().colorPreview);
                 }
