@@ -3,12 +3,14 @@
 public class ButtonDetect : TriggerDetection{
 
     [SerializeField] private Event target;
+    [SerializeField] private bool resetButton = false;
 
     // Play animation when it trigger an event successfully
     public void ButtonPressed()
     {
+
         // check if an event is called successfully
-        if (target.TriggerEvent())
+        if (target.TriggerEvent() || resetButton)
         {
             GetComponent<AudioSource>().Play();
 
@@ -16,6 +18,11 @@ public class ButtonDetect : TriggerDetection{
             if(GetComponent<Animator>() != null)
             {
                 GetComponent<Animator>().Play("ButtonPressed");
+            }
+
+            if (resetButton)
+            {
+                SceneFade.instance.TriggerEvent();
             }
 
             isTriggered = !isTriggered;

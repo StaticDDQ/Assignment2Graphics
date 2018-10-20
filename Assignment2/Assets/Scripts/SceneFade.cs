@@ -66,7 +66,7 @@ public class SceneFade: Event {
     // used if the player wants to reset the level
     public override bool TriggerEvent()
     {
-        StartLevel(SceneManager.GetActiveScene().buildIndex);
+        instance.StartLevel(SceneManager.GetActiveScene().buildIndex);
         return true;
     }
 }
