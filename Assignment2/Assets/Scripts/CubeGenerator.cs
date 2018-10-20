@@ -15,7 +15,7 @@ public class CubeGenerator : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (cube.transform.position.y < -10)
+		if (cube.transform.position.y < -15)
         {
             Destroy(cube);
             cube = InstantiateCube(large);

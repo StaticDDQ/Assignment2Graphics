@@ -4,6 +4,7 @@
 	{
 		_MainTex ("Texture", 2D) = "white" {}
 		_Color ("Color", Color) = (1,1,1,1)
+		_Ka ("Ka", range(0.0, 5.0)) = 4
 	}
 	SubShader
 	{
@@ -35,6 +36,7 @@
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
 			float4 _Color;
+			float _Ka;
 			
 			v2f vert (appdata v)
 			{
@@ -47,11 +49,11 @@
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				float Ka = 4.5;
-				float3 amb = i.color.rgb * UNITY_LIGHTMODEL_AMBIENT * Ka;
+				float3 amb = i.color.rgb * UNITY_LIGHTMODEL_AMBIENT * _Ka;
 
 				float4 col = float4(0.0f, 0.0f, 0.0f, 0.0f);
-				col.rgb = amb.rgb;
+				//col += tex2D(_MainTex, i.uv);
+				col.rgb += amb.rgb;
 				return col;
 			}
 			ENDCG
