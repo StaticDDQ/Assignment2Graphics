@@ -55,6 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onePaintSplatterPrefab: {fileID: 1986553972545132, guid: 36b1118ab3c696e49b97823787da7a40,
     type: 2}
+  lifetime: 3
 --- !u!198 &198305227891286606
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -3628,7 +3629,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minKillSpeed: 0
     maxKillSpeed: 10000
-    radiusScale: 1
+    radiusScale: 0.05
     collidesWith:
       serializedVersion: 2
       m_Bits: 4294967295
