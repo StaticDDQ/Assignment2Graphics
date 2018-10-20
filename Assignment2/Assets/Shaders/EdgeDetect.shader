@@ -80,6 +80,7 @@
                  
                 return lerp(col, _EdgeColor, step(_Threshold, length(orValue - sampledValue)));
 				//return col;
+				//return orValue;
             }
             ENDCG
         }

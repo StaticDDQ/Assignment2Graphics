@@ -7,7 +7,7 @@ public class SceneFade: Event {
     public static SceneFade instance;
 
 	[SerializeField] private Texture2D fadeOutText;
-    [SerializeField] private float fadeSpeed = 0.8f;
+    [SerializeField] private float fadeSpeed = 0.35f;
 
 	private float alpha = 1f;
 	private int fadeDir = -1;
@@ -32,6 +32,7 @@ public class SceneFade: Event {
     private IEnumerator LoadLevel(int index)
     {
         fadeDir = 1;
+        yield return new WaitForSeconds(2);
         AsyncOperation operation = SceneManager.LoadSceneAsync(index);
         while (!operation.isDone)
         {
