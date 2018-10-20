@@ -2,7 +2,7 @@
 
 public class SlipperyEffect : ColourEffect {
 
-    private float force = 5f;
+    private float force = 4f;
 
     public override void ApplyEffect()
     {
@@ -10,8 +10,8 @@ public class SlipperyEffect : ColourEffect {
 
         PhysicMaterial slippery = new PhysicMaterial
         {
-            dynamicFriction = 0f,
-            staticFriction = 0,
+            dynamicFriction = 0.05f,
+            staticFriction = 0.05f,
             frictionCombine = PhysicMaterialCombine.Multiply
         };
 

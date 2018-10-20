@@ -44,7 +44,6 @@ public class PaintballSplatter : MonoBehaviour
                     var splatter = Instantiate(onePaintSplatterPrefab, paintSplatterPos, rotation);
                     splatter.GetComponent<Renderer>().material.SetColor("_Color", Camera.main.GetComponent<ColorPickerRayCasting>().colorPreview);
                 }
-                //Destroy(this.gameObject);
             }
         }
         Destroy(this.gameObject,1.0f);
